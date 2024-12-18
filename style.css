@@ -615,6 +615,11 @@ span {
     #about #aboutLeft h2 {
         text-align: center;
     }
+
+   #footer {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 
