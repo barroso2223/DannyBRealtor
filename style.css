@@ -185,7 +185,7 @@ span {
     text-shadow: 2px 2px 2px white;
     position: relative;
     scale: 1.8;
-    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 15%, 100% 5%, 100% 100%, 0 100%);
     z-index: 1;
 }
 
@@ -267,7 +267,7 @@ span {
     inset: 0;
     position: absolute;
     background-image: url("/images/modernPatio.png");
-    opacity: .9;
+    opacity: .7;
     scale: 1.4;
     object-fit: cover;
     background-repeat: no-repeat;
@@ -469,7 +469,7 @@ span {
 
 #footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 1rem auto;
     color: white;
     background: black;
@@ -479,18 +479,25 @@ span {
     padding: 2rem;
 }
 
-#contactUs {
+#contactUs,
+#servicing,
+#broker,
+#brokerage {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    height: 200px;
     gap: 1rem;
 }
 
-#contactUs ul {
+#footer ul {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
+}
+
+#contactUs ul a {
+    color: white;
 }
 
 
@@ -568,7 +575,6 @@ span {
 
     #homeSplit {
         grid-template-columns: 1fr;
-        margin-top: -8rem;
     }
 
     #homeLeft,
@@ -582,21 +588,29 @@ span {
         order: 1;
     }
 
+    #homeRight {
+        height: 16rem;
+        margin-top: -10rem;
+    }
+
 
     #homeImage {
         justify-items: center;
         margin-top: 2rem;
         width: 100%;
-        scale: .5;
+        scale: .6;
     }
 
-    #about {
-        padding: o;
+    #about #aboutBody{
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
         margin: 0 auto;
     }
 
     #about #aboutLeft p {
         text-align: center;
+        font-size: 1.5rem;
     }
     #about #aboutLeft h2 {
         text-align: center;
