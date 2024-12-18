@@ -10,6 +10,31 @@
 
 body {
     overflow-x: hidden;
+    font-family: "Poppins", serif;
+    text-shadow: 2px 2px 1px black;
+}
+
+.button a {
+    color: white;
+}
+
+.button {
+    width: 13rem;
+    border: 2px solid white;
+    box-shadow: 2px 2px 2px black;
+    background: transparent;
+    color: white;
+    border-radius: .5rem;
+    font-size: clamp(.75rem, 3vh, 1.5rem);
+    margin: 1rem auto;
+    text-shadow: 2px 2px 1px black;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 3px 3px 15px white;
+    color: white;
 }
 
 h1,
@@ -37,11 +62,12 @@ span {
     z-index: -1;
 }
 
-#navBar {
-    padding: 1rem;
+#home #navBar {
+    padding: 20px 50px;
     background-color: rgba(250, 250, 250, .7);
     position: relative;
     box-shadow: 2px 2px 10px white;
+    text-shadow: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -128,24 +154,6 @@ span {
     padding-bottom: 2rem;
 }
 
-#button a {
-    color: white;
-    font-size: clamp(.75rem, 3vh, 1.5rem);
-}
-
-#button {
-    width: 13rem;
-    border: 1px solid white;
-    background: transparent;
-    border-radius: .5rem;
-    margin: 1rem auto;
-}
-
-button:hover {
-    box-shadow: 3px 3px 15px white;
-    color: white;
-}
-
 #homeImage img {
     max-width: 40%;
     height: auto;
@@ -153,7 +161,193 @@ button:hover {
     margin: 0 auto;
 }
 
+#ourListings {
+    max-width: 100dvw;
+    min-height: 60dvh;
+    border-bottom: 2px solid white;
+    box-shadow: 3px 3px 15px white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-content: center;
+    color: white;
+    position: relative;
+    scale: 1.6;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+    z-index: 1;
+}
+
+#ourListings::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    top: -10px;
+    position: absolute;
+    background: rgb(63, 56, 56);
+    background-image: url("/images/ourListingImage.png");
+    background-blend-mode: overlay;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+
+}
+
+#ourBody {
+    width: 100%;
+    display: grid;
+    scale: .6;
+    place-content: center;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+#ourListings a {
+    width: 20rem;
+    border: 2px solid white;
+    border-radius: .5rem;
+    text-align: center;
+    font-size: 2rem ;
+    color: white;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+#ourListings a:hover {
+    box-shadow: 2px 2px 15px white;
+}
+
+#about {
+    max-width: 100dvw;
+    min-height: 100dvh;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+    box-shadow: 3px 3px 15px white;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+}
+
+#about::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    background-image: url("/images/modernPatio.png");
+    opacity: .9;
+    scale: 1.4;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
+
+#aboutBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-content: center;
+    padding: 0 4rem;
+    height: 90dvh;
+    gap: 1rem;
+}
+
+#aboutLeft,
+#aboutRight {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    color: white;
+}
+
+#aboutLeft {
+    width: 100%;
+    text-align: left;
+}
+
+#aboutLeft h2 {
+    padding-bottom: 2rem;
+}
+
+#aboutImage img {
+    max-width: 40%;
+    height: auto;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+#search {
+    max-width: 100dvw;
+    min-height: 60dvh;
+    border-bottom: 2px solid white;
+    box-shadow: 3px 3px 15px white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-content: center;
+    color: black;
+    position: relative;
+    text-shadow: 2px 2px 2px white;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+    z-index: 1;
+}
+
+#search::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    background: rgb(171, 171, 169);
+    background-image: url("/images/searchImage.png");
+    background-blend-mode: overlay;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+
+}
+
+#searchBody {
+    display: flex;
+    flex-direction: column;
+}
+
+#searchBody .button {
+    color: black;
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px white;
+    text-shadow: 2px 2px 2px white;
+    width: 20rem;
+}
+
+#searchBody .button:hover {
+    box-shadow: 3px 3px 20px black;
+}
+
+//KEYFRAMES
+
+
 @media (max-width: 1100px) {
+
+    body {
+        place-content: center;
+        align-items: center;
+    }
+
+    h1,
+    h2 {
+        font-size: 2rem;
+    }
+
+    p,
+    span,
+    button {
+        font-size: 1.25rem;
+    }
+
     #home {
         min-height: 100dvh;
         max-width: 100dvw;
@@ -162,6 +356,8 @@ button:hover {
     #navBar {
         flex-direction: column;
         align-items: center;
+        padding: 0;
+        margin: 0 auto;
     }
 
     #navDiv {
@@ -214,6 +410,13 @@ button:hover {
 
     #homeLeft {
         order: 1;
+        font-size: 1rem;
+    }
+    #homeLeft p {
+        font-size: 1.25rem;
+    }
+    #homeLeft h1 {
+        font-size: 2rem;
     }
 
     #homeImage {
@@ -221,174 +424,20 @@ button:hover {
         margin-top: 2rem;
         width: 100%;
     }
-}
 
-#home > *:last-child,
-#ourListings > *:first-child {
-    margin-bottom: 0;
-    margin-top: 0;
-}
+    #about {
+        padding: o;
+        margin: 0 auto;
+    }
 
-
-#ourListings {
-    max-width: 100dvw;
-    min-height: 60dvh;
-    border-bottom: 2px solid white;
-    box-shadow: 3px 3px 15px white;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    place-content: center;
-    color: white;
-    position: relative;
-    z-index: 1;
-}
-
-#ourListings::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    position: absolute;
-    background: rgb(63, 56, 56);
-    background-image: url("/images/ourListingImage.png");
-    background-blend-mode: overlay;
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
-
-}
-
-#ourBody {
-    width: 100%;
-    display: grid;
-    place-content: center;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-#ourListings a {
-    width: 20rem;
-    border: 2px solid white;
-    border-radius: .5rem;
-    text-align: center;
-    font-size: 2rem ;
-    color: white;
-    margin: 0 auto;
-    margin-top: 1rem;
-}
-
-#ourListings a:hover {
-    box-shadow: 2px 2px 15px white;
-}
-
-#about {
-    max-width: 100dvw;
-    min-height: 100dvh;
-    background-color: black;
-    position: relative;
-    z-index: 1;
-    box-shadow: 3px 3px 15px white;
-}
-
-#about::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    position: absolute;
-    background: rgb(63, 56, 56);
-    background-image: url("/images/modernPatio.png");
-    background-blend-mode: overlay;
-    scale: 1.4;
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
-}
-
-#aboutBody {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-content: center;
-    padding: 0 4rem;
-    height: 90dvh;
-    gap: 1rem;
-}
-
-#aboutLeft,
-#aboutRight {
-    display: grid;
-    place-content: center;
-    text-align: center;
-    color: white;
-}
-
-#aboutLeft {
-    width: 100%;
-    text-align: left;
-}
-
-#aboutLeft h2 {
-    padding-bottom: 2rem;
-}
-
-.button a {
-    color: white;
-}
-
-.button {
-    width: 13rem;
-    border: 1px solid white;
-    background: transparent;
-    color: white;
-    border-radius: .5rem;
-    font-size: clamp(.75rem, 3vh, 1.5rem);
-    margin: 1rem auto;
-}
-
-.button:hover {
-    box-shadow: 3px 3px 15px white;
-    color: white;
-}
-
-#aboutImage img {
-    max-width: 40%;
-    height: auto;
-    border-radius: 50%;
-    margin: 0 auto;
-}
-
-#search {
-    max-width: 100dvw;
-    min-height: 60dvh;
-    border-bottom: 2px solid white;
-    box-shadow: 3px 3px 15px white;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    place-content: center;
-    color: black;
-    position: relative;
-    z-index: 1;
-}
-
-#search::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    position: absolute;
-    background: rgb(171, 171, 169);
-    background-image: url("/images/searchImage.png");
-    background-blend-mode: overlay;
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
+    #about p {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+    #about h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
 }
 
 
