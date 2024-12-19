@@ -622,4 +622,91 @@ span {
     }
 }
 
+@media screen and (max-width:480px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    h1 *, 
+    h2 * {
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    p,
+    span,
+    .button,
+    .buttonBlack {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+
+    #home {
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    #home #navDiv {
+        width: 100%;
+        padding: 0 1rem;
+        margin: 0 auto;
+        margin-left: -2rem;
+    }
+
+    #navDiv ul {
+        font-size: .75rem;
+    }
+
+    #homeSplit {
+        width: 100%;
+
+    }
+
+    #homeLeft,
+    #homeRight {
+        width: 90dvw;
+    }
+
+    #homeLeft h1 {
+        font-size: 2rem;
+        margin-top: -2rem;
+    }
+
+
+    #homeImage {
+        scale: 1.1;
+    }
+
+    #ourListing {
+        width: 100dvw;
+    }
+
+    #ourListings #ourBody {
+        width: 90dvw;
+        margin: auto;
+    }
+
+    #ourBody h2 {
+        font-size: 2rem;
+    }
+
+    #about #aboutBody {
+        width: 90%;
+    }
+
+    #searchBody {
+        width: 90%;
+        margin: auto;
+    }
+
+    #footer {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+
+
 
