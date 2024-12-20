@@ -518,10 +518,23 @@ span {
 
     .button {
         font-size: 1rem;
+        width: fit-content;
+        padding: 5px 10px;
     }
 
     .button a {
-        font-size: .7rem;
+        font-size: 1rem;
+    }
+
+    #ourBody .button,
+    #searchBody .button {
+        width: fit-content;
+        padding: 5px 10px;
+    }
+
+    #ourBody .button a,
+    #searchBody .button a {
+        font-size: 1rem;
     }
 
     main {
