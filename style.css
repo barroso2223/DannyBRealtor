@@ -636,8 +636,33 @@ footer {
 
 /* Media Queries */
 
+@media (max-width:480px) {
 
-@media screen and (max-width:850px) {
+    main {
+        width: 100%;
+    }
+
+    #homeSplit {
+        padding: .5rem;
+        width: 90%;
+    }
+
+    #homeSplit h1 {
+        font-size: 1.5rem;
+        font-weight: 200;
+    }
+
+    .button a {
+        font-size: .75rem;
+    }
+
+    #homeImage {
+        scale: .5;
+    }
+}
+
+
+@media (max-width:850px) {
 
     h1,
     h2{
@@ -648,6 +673,7 @@ footer {
     p,
     span {
         font-size: .75rem;
+        font-weight: 300;
     }
 
     #home,
@@ -712,11 +738,11 @@ footer {
     }
 
     #homeLeft h1 {
-        font-size: 1.5rem;
+        font-size: clamp(1.25, 3vw, 1.5rem);
     }
 
     #homeLeft p {
-        font-size: 1rem;
+        font-size: clamp(1rem, 3vw, 1.25rem);
         font-weight: 300;
     }
 
@@ -768,6 +794,7 @@ footer {
     span,
     button {
         font-size: 1.25rem;
+        font-weight: 200;
     }
 
     #home {
