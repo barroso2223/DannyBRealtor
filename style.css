@@ -670,10 +670,6 @@ footer {
         font-size: 1rem;
     }
 
-    #home {
-        gap: 2rem;
-    }
-
     #navBar {
         width: 100%;
         flex-direction: column;
