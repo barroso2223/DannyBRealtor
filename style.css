@@ -695,8 +695,7 @@ footer {
     }
 
     #homeImage {
-        width: 90px;
-        height: 90px;
+        scale: .8;
     }
 
     #homeImage img {
