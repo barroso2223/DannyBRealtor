@@ -185,7 +185,7 @@ span {
     text-shadow: 2px 2px 2px white;
     position: relative;
     scale: 1.8;
-    clip-path: polygon(0 15%, 100% 5%, 100% 100%, 0 100%);
+    clip-path: polygon(0 22%, 100% 3%, 100% 100%, 0 100%);
     z-index: 1;
 }
 
@@ -321,7 +321,6 @@ span {
     color: black;
     position: relative;
     text-shadow: 2px 2px 2px white;
-    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
     z-index: 1;
 }
 
@@ -516,6 +515,16 @@ span {
         font-size: .8rem;
     }
 
+    #home,
+    #about {
+        min-height: 100dvh;
+    }
+
+    #ourListings,
+    #search {
+        min-height: 40dvh;
+    }
+
     .button {
         font-size: 1rem;
         width: fit-content;
@@ -538,6 +547,10 @@ span {
     }
 
     main {
+    }
+
+    #homeImage {
+        scale: 1;
     }
 
     #homeLeft,
