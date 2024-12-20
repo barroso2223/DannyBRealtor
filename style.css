@@ -595,6 +595,17 @@ footer {
     font-weight: 400;
 }
 
+.copyRight {
+    display: flex;
+    justify-content: center;
+    margin: .5rem auto;
+}
+
+.copyRight p {
+    color: white;
+    font-size: clamp(.75rem, 2vw, 1rem);
+}
+
 #servicing,
 #broker,
 #borkerage {
@@ -659,6 +670,10 @@ footer {
         font-size: 1rem;
     }
 
+    #home {
+        gap: 2rem;
+    }
+
     #navBar {
         width: 100%;
         flex-direction: column;
@@ -679,7 +694,8 @@ footer {
     }
     
     main {
-        width: 100dvw;
+        width: 100%;
+        padding-top: 2rem;
     }
 
     #homeImage {
@@ -689,6 +705,10 @@ footer {
 
     #homeImage img {
         scale: .8;
+    }
+
+    #homeSplit {
+        margin-top: 2rem;
     }
 
     #homeLeft,
