@@ -549,7 +549,7 @@ span {
     main {
     }
 
-    #homeImage {
+    #homeImage img {
         scale: 1;
     }
 
@@ -571,6 +571,10 @@ span {
     #searchBody {
         width: 90%;
         margin: auto;
+    }
+
+    .myImage img {
+        scale: 1;
     }
 }
 
