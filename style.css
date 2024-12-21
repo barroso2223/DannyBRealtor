@@ -638,6 +638,10 @@ footer {
 
 @media (max-width:480px) {
 
+    #home {
+        height: auto;
+    }
+
     #homeSplit h1 {
         font-size: 1.5rem;
         font-weight: 200;
@@ -659,7 +663,21 @@ footer {
         clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
     }
 
-    
+    #about::before {
+        content: '';
+        width: 100%;
+        height: auto;
+        inset: 0;
+        position: absolute;
+        background-image: url("/images/modernPatioSm.png");
+        opacity: .7;
+        scale: 1.4;
+        object-fit: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: -1;
+    }
+
     #contact::before {
     content: "";
     position: absolute;
@@ -691,7 +709,7 @@ footer {
 
     #home,
     #about {
-        min-height: 100dvh;
+        height: auto;
     }
 
     #ourListings,
@@ -761,6 +779,21 @@ footer {
     
     #ourListings {
         clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+    }
+
+    #about::before {
+        content: '';
+        width: 100%;
+        height: auto;
+        inset: 0;
+        position: absolute;
+        background-image: url("/images/modernPatioSm.png");
+        opacity: .7;
+        scale: 1.4;
+        object-fit: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: -1;
     }
 
     #ourBody .button,
