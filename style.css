@@ -53,6 +53,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* Match your navbar height */
 }
 
 body {
@@ -151,8 +152,6 @@ body {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M6 6L24 24M24 6L6 24'/%3e%3c/svg%3e");
 }
 
-
-
 /* Mobile Menu Styles */
 @media (max-width: 991px) {
     #navbarNav {
@@ -160,22 +159,31 @@ body {
         top: 100px;
         left: 0;
         right: 0;
-        bottom: 0;
+        height: calc(100vh - 100px);
         background: rgba(255, 255, 255, 0.98) !important;
         backdrop-filter: blur(10px);
         padding: 2rem;
+        overflow-y: auto;
+        z-index: 1000;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .nav-link {
-        font-size: 1.5rem !important;
+        font-size: 2rem !important;
         color: #000 !important;
-        padding: 1rem !important;
+        padding: 1.5rem !important;
+        justify-content: center;
     }
 
-    .faFonts.mobile-icons {
-        order: 2;
-        margin-left: auto;
-        margin-right: 1rem;
+    .nav-item {
+        margin: 1rem 0;
     }
 }
 
