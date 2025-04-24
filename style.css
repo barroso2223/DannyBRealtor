@@ -193,6 +193,11 @@ body {
 }
 
 /* Desktop styles */
+
+.hoverBlk:hover {
+    color: var(--textBlack) !important;
+}
+
 @media (min-width: 992px) {
     #navbarNav {
         opacity: 1 !important;
