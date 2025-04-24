@@ -1,3 +1,46 @@
+:root {
+    /*Text Colors*/
+
+    --textWhite: white;
+    --textBlack: black;
+
+    /*Logo Image*/
+
+    --logoImage: url("/images/realtorlogo.png");
+
+    /*Background Colors*/
+
+    --bgDark: black;
+    --bgLight: white;
+    --bgMedium: rgb(185, 183, 183); 
+
+    /*Business Theme Background Colors, can use these to place your company colors*/
+    --bgTheme1: rgb(144, 144, 207);
+    --bgTheme2: rgb(110, 182, 166);
+    --bgTheme3: red;
+    --bgTheme4: gold;
+    --bgCustom: rgb(223, 196, 43);
+
+    /*section Background Images Big Screens*/
+
+    --homeVideo: ;
+    --ourListingsBGImage: url("/images/ourListingImage.png");
+    --aboutBGImage: url("/images/modernPatio.png");
+    --searchBGImage: url("/images/searchImage.png");
+    --reviewsBGImages: url("/images/reviews.png");
+    --contactBGImages: url("/images/modernint3.png");
+
+    /*section background Images Small/Medium Screens*/
+
+    --homeVideo: ;
+    --ourListingsBGImageSM: url("/images/ourListingsImage.png");
+    --aboutBGImageSM: url("/images/modernPatioSm.png");
+    --searchBGImageSM: url("/images/searchMap.png");
+    --reviewsBGImagesSM: url("/images/reviews.png");
+    --contactBGImagesSM: url("/images/modernInt3small.png");
+
+}
+
 *,
 *::before,
 *::after {
@@ -8,11 +51,6 @@
     list-style: none;
 }
 
-img * {
-    width: 100%;
-    height: 100%;
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -20,950 +58,265 @@ html {
 body {
     overflow-x: hidden;
     font-family: "Poppins", serif;
-    text-shadow: 2px 2px 1px black;
+    background-color: var(--textBlack);
 }
 
-.button a {
-    color: white;
-    font-size: 1.25rem;
+.btn-outline-primary {
+    border: 2px solid var(--textWhite);
 }
 
-.button {
-    width: max-content;
-    border: 2px solid white;
-    box-shadow: 2px 2px 2px black;
-    background: transparent;
-    color: white;
-    border-radius: .5rem;
-    font-size: clamp(.75rem, 3vw, 1.5rem);
-    margin: 1rem auto;
-    text-shadow: 2px 2px 1px black;
-    padding: 5px 10px;
-    cursor: pointer;
+.fa-solid:hover {
+    color:
+     var(--bgTheme1);
 }
 
-button:hover {
-    box-shadow: 3px 3px 15px white;
-    color: white;
+.btn {
+    background-color: var(--bgCustom);
 }
 
-h1,
-h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
+.btn:hover {
+    background-color: var(--textWhite);
+    color: var(--textBlack) !important;
+    border: 2px solid var(--textBlack);
 }
 
-h3,
-h4 {
-    font-size: clamp(1.5rem, 3vw, 3.5rem);
-    font-weight: 250;
+.text-custom {
+    color: var(--bgCustom) !important;
 }
 
-h5,
-h6 {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+.textShadowBlk {
+    text-shadow: 2px 2px 5px var(--textBlack);
 }
 
-p,
-span {
-    font-size: clamp(.75rem, 3vw, 2rem);
-    font-weight: 150;
+.textShadowWht {
+    text-shadow: 2px 2px 10px var(--textWhite);
 }
+
+.bgcustom {
+    background-color: var(--bgCustom);
+}
+
+.text-custom {
+    color: rgb(40, 30, 46);
+}
+
+/* Home */
 
 #home {
-    position: relative;
-    max-width: 100dvw;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: space-evenly;
-    overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    width: 100dvw;
+    height: 100dvh;
 }
 
-#home video {
+.whiteBG {
+    background-color: rgba(250, 250, 250, .9);
+}
+
+/* Custom Navbar Styles */
+.navbar {
+    transition: background-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hamburger Animation */
+.navbar-toggler {
+    border: none !important;
+    padding: 0.75rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    transition: transform 0.3s ease;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M6 6L24 24M24 6L6 24'/%3e%3c/svg%3e");
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 991px) {
+    #navbarNav {
+        position: fixed;
+        top: 100px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+    }
+
+    .nav-link {
+        font-size: 1.5rem !important;
+        color: #000 !important;
+        padding: 1rem !important;
+    }
+
+    .faFonts.mobile-icons {
+        order: 2;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+}
+
+.nav-item:hover {
+    background-color: var(--bgCustom);
+    color: var(--textWhite) !important;
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+    #navbarNav {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        display: flex !important;
+        position: static;
+        background: transparent;
+    }
+
+    .collapsing {
+        display: flex !important;
+        transition: none !important;
+    }
+}
+
+/* Services */
+
+.card {
+    width: 300px;
+    height: 275px;
+    background-image: url(/images/cedarPlanks.png);
+    background-size: cover;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    object-fit: cover;
-    z-index: -1;
 }
 
-#home #navBar {
-    content: '';
-    width: 100%;
-    padding: 1rem;
-    background-color: rgba(250, 250, 250, .7);
-    position: absolute;
+/* In your CSS file or <style> tag */
+video.bg-video {
+    position: absolute; /* or absolute if needed */
     top: 0;
-    box-shadow: 2px 2px 15px white;
-    text-shadow: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-}
-
-#navDiv {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-#navLogo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    inset: .5;
-    width:100px;
-    text-align: center;
-}
-
-#navLogo img {
-    width: 100%;
-    height: 100%;
-}
-
-#navBar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(.75rem, 2vw, 1.25rem);
-    padding: 0;
-    margin: 0;
-    gap: clamp(1rem, 3vw, 4rem);
-}
-
-#navBar ul li {
-    margin: 0 auto;
-}
-
-.navSocial {
-    display: flex;
-    gap: 1rem;
-}
-
-#navBar a {
-    color: black;
-    text-align: center;
-}
-
-#navBar a:hover {
-    color: rgb(79, 177, 169);
-    box-shadow: 2px 2px 10px white;
-    border: none;
-}
-
-main {
-    width: 100%;
-}
-
-#homeSplit {
-    display: flex;
-    padding: 0 4rem;
-    width: 90%;
-    height: 90%;
-    margin: auto;
-    gap: 2rem;
-}
-
-#homeLeft,
-#homeRight {
-    flex: 1;
-    text-align: center;
-    color: white;
-}
-
-#homeLeft {
-    width: 100%;
-}
-
-#homeLeft h1 {
-    padding-bottom: 2rem;
-}
-
-
-#homeImageContainer {
-    width: 100%;
-    min-height: 10dvh;
-}
-
-#homeImage {
-    margin: 0 auto;
-    width: 400px;
-    height: 400px;
-}
-
-#homeImage img {
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-}
-
-#ourListings {
-    max-width: 100dvw;
-    height: 40dvh;
-    overflow: hidden;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    place-content: center;
-    color: black;
-    text-shadow: 2px 2px 2px white;
-    position: relative;
-    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
-    z-index: 2;
-}
-
-#ourListings::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    position: absolute;
-    background-image: url("/images/ourListingImage.png");
-    opacity: .4;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     z-index: -1;
-}
+    pointer-events: none;
+  }
 
-#ourListings .button {
-    background: transparent;
-    border-radius: .5rem;
-    margin: 0 auto;
-    border: 2px solid black;
-    padding: 5px 20px;
-    margin-top: 2rem;
-    color: black;
-}
-
-#ourListings .button:hover {
-    box-shadow: 2px 2px 15px black;
-}
-
-#ourListings .button a {
-    color: black;
-    text-shadow: 2px 2px 2px white;
-    font-size: 1.25rem;
-}
-
-#ourBody {
-    width: 90%;
-    display: grid;
-    margin: auto;
-}
-
-#ourBody p {
-    font-weight: 300;
-}
-
-#ourListings a {
-    width: 20rem;
-    border: 2px solid white;
-    border-radius: .5rem;
-    text-align: center;
-    font-size: 2rem ;
-    color: white;
-    margin: 0 auto;
-    margin-top: 1rem;
-}
-
-#ourListings a:hover {
-    box-shadow: 2px 2px 15px white;
-}
+/* About */
 
 #about {
-    max-width: 100dvw;
-    min-height: 100dvh;
-    overflow: hidden;
-    background-color: black;
-    z-index: 1;
+    width: 100dvw !important;
+    height: 100dvh !important;
     position: relative;
-    box-shadow: 5px 5px 15px rgb(199, 197, 197);
-    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    z-index: 1;
+    text-shadow: 2px 2px 5px var(--clrMain900);
 }
 
-#about::before {
-    content: '';
+#about:before {
+    content: "";
     width: 100%;
-    height: auto;
+    height: 100%;
     inset: 0;
     position: absolute;
-    background-image: url("/images/modernPatio.png");
-    opacity: .7;
-    scale: 1.4;
-    object-fit: cover;
-    background-repeat: no-repeat;
+    background-image: var(--aboutBGImage);
+    background-size: cover;
+    background-repeat: none;
     background-position: center;
     z-index: -1;
 }
 
-#aboutBody {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-content: center;
-    padding: 0 4rem;
-    height: 90dvh;
-    gap: 1rem;
-}
+  /* Search */
 
-#aboutLeft,
-#aboutRight {
-    display: grid;
-    place-content: center;
-    text-align: center;
-    color: white;
-}
-
-#aboutLeft {
-    width: 100%;
-    text-align: left;
-}
-
-#aboutLeft h2 {
-    padding-bottom: 2rem;
-}
-
-#about p {
-    font-weight: 300;
-}
-
-#aboutImage img {
-    max-width: 40%;
+  #search {
+    border: 1px solid var(--bgCustom);
+    width: 100dvw; 
     height: auto;
-    border-radius: 50%;
-    margin: 0 auto;
-}
+  }
 
-#search {
-    max-width: 100dvw;
-    min-height: 40dvh;
-    background: rgb(161, 203, 241);
-    border-bottom: 2px solid white;
-    box-shadow: 5px 5px 15px rgb(199, 197, 197);
-    text-align: center;
-    inset: 0;
-    margin: auto;
-    overflow: hidden;
-    display: grid;
-    place-content: center;
-    color: black;
+  .custom-ratio-container {
+    border: 1px solid var(--bgCustom);
     position: relative;
-    text-shadow: 2px 2px 2px white;
-    z-index: 1;
-}
-
-#search::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    top: -30px;
+    min-width: 350px;
+    height: 800px;
+    overflow: hidden;
+    margin: auto;
+    aspect-ratio: 4 / 3; /* Mobile default */
+  }
+  
+  .custom-ratio-container iframe {
     position: absolute;
-    background-image: url("/images/searchImage.png");
-    opacity: .5;
-    scale: 1.2;
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
-
-}
-
-#searchBody {
-    display: flex;
-    flex-direction: column;
-}
-
-#searchBody h2 {
-    font-weight: 400;
-}
-
-#searchBody span {
-    font-weight: 300;
-    text-shadow: 3px 3px 3px white;
-}
-
-#searchBody .button {
-    color: black;
-    border: 2px solid black;
-    border-radius: .5rem;
-    box-shadow: 2px 2px 2px white;
-    text-shadow: 2px 2px 2px white;
-    background: transparent;
-    font-size: 1.5rem;
-    width: 12rem;
-    margin: 1rem auto;
-}
-
-#searchBody .button:hover {
-    box-shadow: 3px 3px 20px black;
-}
-
-#search .button a {
-    color: black;
-}
-
-#reviews {
-    max-width: 100dvw;
-    min-height: 50dvh;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    place-content: center;
-    color: white;
-    bottom: 0;
-    box-shadow: 5px 5px 15px white;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-#reviews h2 {
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 90%;
-    margin: auto;
-}
+    height: 800px;
+  }
+  
+  /* Use media query to change to 16:9 on larger screens */
+  @media (min-width: 768px) {
+    .custom-ratio-container {
+      aspect-ratio: 16 / 9;
+      margin: auto;
+    }
+  }
+  
+  
 
-#reviews img {
-    width: 100%;
-    height: 100%;
-    sc
-}
+
+/* Contact */
 
 #contact {
-    max-width: 100dvw;
-    min-height: 100dvh;
-    color: white;
-    background: rgb(51, 63, 58);
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+    width: 100dvw;
+    height: auto;
+    background-color: var(--textBlack);
+    background-image: var(--contactBGImages);
+    inset: 0 !important;
+    background-size: cover;
+    text-shadow: 2px 2px 5px var(--textWhite);
+    margin-bottom: -1rem !important;
 }
 
-#contact::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("images/modernint3.png");
-    background-position:  cover;
-    background-repeat: no-repeat;
-    opacity: .6;
-    scale: 1;
-    z-index: -1;
+.my-img {
+    filter: drop-shadow(0 0 0.75rem var(--clrTheme400));
 }
 
-#contact h2 {
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-    align-items: center;
-    color: white;
-    text-shadow: 2px 2px 2px black;
-    margin: 1rem;
-    text-align: center;
+.containerInfo {
+    background: rgba(255, 255, 255, 0.1); /* light overlay */
+    border-radius: 16px;
+    backdrop-filter: blur(10px); /* frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+    color: var(--textBlack);
+    max-width: fit-content;
 }
 
-#imageContainer {
-    width: 100%;
-    min-height: 10dvh;
+@media (min-width: 768px) {
+    #contact {
+        background-image: var(--contactBGImagesSM);
+    }
 }
 
-#contact .myImage {
-    margin: 0 auto;
-    width: 200px;
-    height: 200px;
-}
+/* Footer */
 
-.myImage img {
-    border-radius: 50%;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-}
 
-#contact .contactBody {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-    text-shadow: 2px 2px 2px black;
-    align-items: center;
-    text-align: center;
-}
 
-.contactBody h5 {
-    font-weight: 300;
-}
-
-#contact .myInfo {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin: 1rem;
-}
-
-#contact .contactIcons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    margin: 1rem;
-    cursor: pointer;
-}
-
-#contact .contactIcons a {
-    color: white;
-    background: transparent;
-}
-
-#contact .contactIcons a:hover {
-    color: rgb(79, 177, 169);
-    box-shadow: 2px 2px 15px white;
-}
 
 footer {
     width: 100dvw;
-    min-height: 15dvh;
-    background: black;
-    overflow: hidden;
+    height: auto;
+    padding-top: 3rem;
+    background-color: var(--textBlack) !important;
 }
-
-#footer {
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    color: white;
-    text-align: left;
-    width: 80%;
-    min-height: 30dvh;
-    overflow: hidden;
-    gap: 1rem;
-}
-
-.footerLeft,
-.footerRight {
-    text-align: left;
-    font-size: clamp(.5rem, 3vw, 1rem);
-    padding: 1rem;
-    font-weight: 200;
-    margin: auto;
-}
-
-.footerLeft {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    flex: 1;
-}
-
-#contactUs li :hover {
-    color: rgb(79, 177, 169);
-    box-shadow: 2px 2px 15px white;
-    background: transparent;
-}
-
-.footerLeft p {
-    font-size: .75rem;
-}
-
-.footerRight {
-    display: flex;
-    flex: 2;
-    justify-content: space-between;
-}
-
-#footer h5 {
-    font-size: 1.25rem;
-    font-weight: 400;
-}
-
-.copyRight {
-    display: flex;
-    justify-content: center;
-    margin: .5rem auto;
-}
-
-.copyRight p {
-    color: white;
-    font-size: clamp(.75rem, 2vw, 1rem);
-}
-
-#servicing,
-#broker,
-#borkerage {
-    width: 100%;
-}
-
-#contactUs,
-#servicing,
-#broker,
-#brokerage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 200px;
-    gap: 1rem;
-}
-
-#footer ul {
-    display: flex;
-    flex-direction: column;
-}
-
-#contactUs ul a {
-    color: white;
-}
-
-
-/* Media Queries */
-
-@media (max-width:480px) {
-
-    #home {
-        height: auto;
-    }
-
-    #homeSplit h1 {
-        font-size: 1.5rem;
-        font-weight: 200;
-    }
-    #navLogo {
-        justify-content: center;
-        margin-left: -2rem;
-    }
-
-    #homeRight {
-        margin-top: 100px;
-    }
-
-    .button a {
-        font-size: .75rem;
-    }
-
-    #homeImage {
-        display: none;
-    }
-
-    #ourListings {
-        clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
-    }
-
-    #about::before {
-        content: '';
-        width: 100%;
-        height: auto;
-        inset: 0;
-        position: absolute;
-        background-image: url("/images/modernPatioSm.png");
-        opacity: .7;
-        scale: 1.4;
-        object-fit: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        z-index: -1;
-    }
-
-    #contact::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("images/modernInt3small.png");
-    background-position:  cover;
-    background-repeat: no-repeat;
-    opacity: .6;
-    z-index: -1;
-    }
-}
-
-
-@media (max-width:850px) {
-
-    h1,
-    h2{
-        font-size: 1.25rem;
-        font-weight: 300;
-    }
-
-    p,
-    span {
-        font-size: .75rem;
-        font-weight: 300;
-    }
-
-    #home,
-    #about {
-        height: auto;
-    }
-
-    #ourListings,
-    #search {
-        min-height: 40dvh;
-    }
-
-    .button {
-        font-size: 1rem;
-        width: fit-content;
-        padding: 5px 10px;
-    }
-
-    .button a {
-        font-size: 1rem;
-    }
-
-    #navBar {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #navDiv {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #navDiv ul {
-        width: 90%;
-        margin-right: 2rem;
-        flex-wrap: nowrap;
-        font-size: clamp(.5rem, 1.5vw, .75rem);
-    }
-    
-    main {
-        width: 100%;
-        padding-top: 2rem;
-    }
-
-    #homeImage {
-        scale: .8;
-    }
-
-    #homeImage img {
-        scale: .8;
-    }
-
-    #homeSplit {
-        margin-top: 2rem;
-    }
-
-    #homeLeft,
-    #homeRight {
-        width: 100;
-    }
-
-    #homeLeft h1 {
-        font-size: clamp(1.25, 3vw, 1.5rem);
-    }
-
-    #homeLeft p {
-        font-size: clamp(1rem, 3vw, 1.25rem);
-        font-weight: 300;
-    }
-    
-    #ourListings {
-        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
-    }
-
-    #about::before {
-        content: '';
-        width: 100%;
-        height: auto;
-        inset: 0;
-        position: absolute;
-        background-image: url("/images/modernPatioSm.png");
-        opacity: .7;
-        scale: 1.4;
-        object-fit: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        z-index: -1;
-    }
-
-    #ourBody .button,
-    #searchBody .button {
-        width: fit-content;
-        padding: 5px 10px;
-    }
-
-    #ourBody .button a,
-    #searchBody .button a {
-        font-size: 1rem;
-    }
-
-    .myImage img {
-        scale: 1;
-    }
-
-    #contact::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("images/modernInt3small.png");
-        background-position:  cover;
-        background-repeat: no-repeat;
-        opacity: .6;
-        z-index: -1;
-        }
-
-    #footer {
-        width: 100%;
-        margin: auto;
-        text-align: center;
-        flex-wrap: wrap;
-    }
-
-    .footerLeft {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 1200px) {
-
-    h1,
-    h2 {
-        font-size: 2rem;
-    }
-
-    h3,
-    h4 {
-        font-size: 1.5;
-    }
-
-    h5,
-    h6 {
-        font-size: 1.3;
-    }
-
-    p,
-    span,
-    button {
-        font-size: 1.25rem;
-        font-weight: 200;
-    }
-
-    #home {
-        min-height: 100dvh;
-        max-width: 100dvw;
-    }
-
-    #navBar {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-    }
-
-    #navDiv {
-        text-align: center;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-    }
-
-    #navDiv ul {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-evenly;
-        width: 100%;
-        font-size: clamp(.6rem, 1.5vw, 1rem);
-    }
-
-    .navSocial {
-        display: flex;
-        justify-content: center;
-        margin: 1rem auto;
-    }
-
-    .navSocial {
-        font-size: 1rem;
-    }
-
-    #homeSplit {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    #homeLeft,
-    #homeRight {
-        width: 100%;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    #homeLeft {
-        order: 1;
-    }
-
-    #homeleft h1 {
-        font-size: 1rem;
-    }
-
-    #homeImage {
-        justify-items: center;
-        width: 200px;
-        height: 200px;
-    }
-
-    #about #aboutBody{
-        display: flex;
-        justify-content: center;
-        padding: 1rem;
-        margin: 0 auto;
-    }
-
-    #about #aboutLeft p {
-        text-align: center;
-        font-size: 1.5rem;
-    }
-    #about #aboutLeft h2 {
-        text-align: center;
-    }
-
-    #contact::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("images/modernInt3small.png");
-        background-position:  cover;
-        background-repeat: no-repeat;
-        opacity: .6;
-        z-index: -1;
-        }
-
-    #footer {
-        width: 100%;
-        margin: auto;
-        text-align: center;
-        flex-wrap: wrap;
-    }
-}
-
-
-
-

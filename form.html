@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Website Customization Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* New Style for Color Picker and Logo Upload */
+        .color-picker {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .color-picker input[type="color"] {
+            width: 40%;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Customize Your Website</h2>
+        <form id="clientForm" method="POST" action="/submit" enctype="multipart/form-data">
+            <!-- Client Name -->
+            <label for="businessName">Business Name:</label>
+            <input type="text" id="businessName" name="businessName" required oninput="updateContent(this.value, 'output1')">
+
+            <!-- Package Type -->
+            <label for="packageType">Package Type:</label>
+            <select id="packageType" name="packageType" required>
+                <option value="basic">Basic</option>
+                <option value="standard">Standard</option>
+                <option value="premium">Premium</option>
+            </select>
+
+            <!-- Hero Section Image/Video -->
+            <label for="heroMedia">Hero Section Image/Video (Optional):</label>
+            <input type="file" id="heroMedia" name="heroMedia" accept="image/*,video/*" oninput="updateContent(this.value, 'output2')">
+            
+            <!-- About Section Image/Video -->
+            <label for="heroMedia">About Section Image/Video (Optional):</label>
+            <input type="file" id="heroMedia" name="heroMedia" accept="image/*,video/*" oninput="updateContent(this.value, 'output3')">
+
+            <!-- About Section Content -->
+            <label for="aboutContent">About Section Content:</label>
+            <textarea id="aboutContent" name="aboutContent" rows="4" required></textarea>
+
+            <!-- Contact Section Info -->
+            <label for="contactInfo">Contact Info (Phone, Email):</label>
+            <textarea id="contactInfo" name="contactInfo" rows="2" required></textarea>
+
+            
+
+            <!-- Color Selection -->
+            <label for="primaryColor">Primary Color:</label>
+            <input type="color" id="primaryColor" name="primaryColor" value="#0000ff" required oninput="updateContent(this.value, 'output4')">
+
+            <label for="secondaryColor">Secondary Color:</label>
+            <input type="color" id="secondaryColor" name="secondaryColor" value="#ff6347" required oninput="updateContent(this.value, 'output5')">
+
+            <!-- Logo Upload -->
+            <label for="logoUpload">Upload Logo (Optional):</label>
+            <input type="file" id="logoUpload" name="logoUpload" accept="image/*" oninput="updateContent(this.value, 'output6')">
+
+            <!-- Parallax and 3D Effect -->
+            <label for="parallax">Enable Parallax:</label>
+            <select id="parallax" name="parallax" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="threeDEffect">Enable 3D Effect:</label>
+            <select id="threeDEffect" name="threeDEffect" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <!-- Image Uploads -->
+            <label for="imageUploads">Upload Additional Images (URLs):</label>
+            <input type="text" id="imageUploads" name="imageUploads" placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg" oninput="updateContent(this.value, 'output7')">
+
+            <div class="button-container">
+                <button type="submit">Generate Website</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

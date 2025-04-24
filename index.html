@@ -4,164 +4,225 @@
     <meta charset="UTF-8">
     <meta name="Danny B Homes" content="Realestate Site to buy and sell properties">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <title>DannyBRealtor</title>
     <meta name="trustpilot-one-time-domain-verification-id" content="d8e222fa-1fa1-4751-9fc7-41f67a3f175b"/>
 </head>
 <body>
-    <section id="home">
-        <nav id="navBar">
-            <div id="navDiv">
-                <div id="navLogo">
-                    <img src="/images/realtorlogo.png" alt="realtor logo">
-                </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#ourListings">Our Listings</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#search">Search</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="navSocial">
-                    <a href="https://x.com/dannydevelops82" target="_blank"  rel="noopener" class="fa-brands fa-x-twitter fa-2x"><span class="label"></span></a>
-                    <a href="https://www.linkedin.com/in/daniel-barroso82/" target="_blank"  rel="noopener" class="fa-brands fa-linkedin fa-2x"><span class="label"></span></a>
-                    <a href="https://www.instagram.com/danny.develops" class="fa-brands fa-square-instagram fa-2x" target="_blank"  rel="noopener"><span class="label"></span></a>
-                    <a href="https://github.com/barroso2223" target="_blank"  rel="noopener" class="fa-brands fa-square-github fa-2x"><span class="label"></span></a>
-                </div>
-            </div>
-            
-        </nav>
-        <main>
-            <div id="homeSplit">
-                <div id="homeLeft">
-                    <h1>Helping You Buy, Sell, and Thrive in Miami-Dade, Broward, and Palm Beach</h1>
-                    <p>From cozy condos to luxury estates, I deliver unmatched service for every client.</p>
-                    <button class="button"><a href="#contact">LET'S CHAT</a></button>
-                </div>
-                <div id="homeRight">
-                    <div id="homeImageContainer">
-                        <div id="homeImage">
-                            <img src="/images/myImage.png" alt="my image">
+    <section id="home" class="position-relative" style="width: 100dvw; height: 100vh;">
+
+        <video class="bg-video" 
+        src="/videos/miamiBeachVid.mp4" 
+        autoplay loop muted playsinline></video>
+
+        <nav class="navbar navbar-expand-lg fixed-top bg-white">
+            <div class="container-fluid px-4" style="height: 100px;">
+        
+                <!-- Desktop and Mobile Wrapper (Flex row for all sizes) -->
+                <div class="d-flex w-100 justify-content-between align-items-center">
+        
+                    <!-- Left: Logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="/images/realtorlogo.png" alt="Company Logo" class="img-fluid" style="width: 100px;">
+                    </a>
+        
+                    <!-- Center: Navigation Links (shown only on lg and up) -->
+                    <div class="collapse navbar-collapse d-none d-lg-flex justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav gap-4 fs-5">
+                            <li class="nav-item"><a class="nav-link text-black" href="#home">HOME</a></li>
+                            <li class="nav-item"><a class="nav-link text-black" href="#services">SERVICES</a></li>
+                            <li class="nav-item"><a class="nav-link text-black" href="#about">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link text-black" href="#contact">CONTACT</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Right Side: Icons and Hamburger for All Sizes -->
+                    <div class="d-flex align-items-center gap-3">
+                        
+                        <!-- Mobile Icons (only shown on mobile) -->
+                        <div class="d-flex d-lg-none gap-3">
+                            <a href="mailto:dannybhomes@gmail.com" class="text-dark"><i class="fa-solid fa-envelope fa-lg"></i></a>
+                            <a href="sms:+17868739593" class="text-dark"><i class="fa-solid fa-comment fa-lg"></i></a>
+                            <a href="tel:+17868739593" class="text-dark"><i class="fa-solid fa-phone fa-lg"></i></a>
                         </div>
+        
+                        <!-- Hamburger Button (mobile only) -->
+                        <button class="navbar-toggler d-lg-none border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+        
+                        <!-- Desktop Icons (only shown on lg and up) -->
+                        <div class="d-none d-lg-flex gap-3 ms-4">
+                            <a href="mailto:dannybhomes@gmail.com" class="text-dark"><i class="fa-solid fa-envelope fa-lg text-custom"></i></a>
+                            <a href="sms:+17868739593" class="text-dark"><i class="fa-solid fa-comment fa-lg text-custom"></i></a>
+                            <a href="tel:+17868739593" class="text-dark"><i class="fa-solid fa-phone fa-lg text-custom"></i></a>
+                        </div>
+        
                     </div>
                 </div>
             </div>
-
-        </main>
+        </nav>
         
-        <video src="/videos/miamiBeachVid.mp4" autoplay loop muted playsinline></video>
-    </section>
 
-    <section id="ourListings">
-        <div id="ourBody">
-            <h2>Our Listings</h2>
-            <p>Explore our listings to find your dream property. Click the link below to view more details:</p>
-            <button class="button"><a href="https://danielbarroso.premierassociatesrealty.com/" target="_blank">View Our Listings</a></button>
-        </div>
+        <!-- Main Content -->
+        <main class="position-relative vh-100 d-flex align-items-center pt-5 mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Text Content -->
+                    <div class="col-md-6 text-center text-md-start text-white mb-5 mb-md-0">
+                        <h1 class="display-4 fw-bold mb-4 textShadowBlk">Helping You Buy, Sell, and Thrive in Miami-Dade, Broward, and Palm Beach</h1>
+                        <p class="lead mb-4 textShadowBlk">From cozy condos to luxury estates, I deliver unmatched service for every client.</p>
+                        <a href="#contact" class="btn btn-outline-primary btn-lg px-5 text-white">LET'S CHAT</a>
+                    </div>
 
-    </section>
-
-    <section id="about">    
-        <div id="aboutBody">
-            <div id="aboutLeft">
-                <h2>About Us</h2>
-                <p>With years of expertise, a passion for innovation, and a commitment to excellence,  
-                    we’ve built a reputation for going above and beyond for our clients.  
-                    Discover how we can help you achieve your goals — because your success is our success.</p>
-                <button class="button"><a href="#contact">LET'S CHAT</a></button>
-            </div>
-        </div>
-    </section>
-
-    <section id="search">
-        <div id="searchBody">
-            <h2>Your Search Starts Here</h2>
-            <span>Let us help you find the ideal solution quickly and efficiently.</span>
-            <button class="button"><a href="https://danielbarroso.premierassociatesrealty.com/searches" target="_blank">Custom Search</a></button>
-        </div>
-    </section>
-
-    <section id="reviews">
-        <h2><img src="images/reviews.png" alt=""></h2>
-    </section>
-
-    <section id="contact">
-        <h2 id="contactTitle">Servicing South Florida Market</h2>
-        <div id="imageContainer">
-            <div class="myImage">
-                <img src="images/myImage.png" alt="">
-            </div>
-        </div>
-        <div class="contactBody">
-            <h2 class="myName">Daniel Barroso</h2>
-            <div class="myInfo">
-                <h5 class="myLicense">License ID# 3501271</h3>
-                <h5 class="myCompany">Company: Premier Associates Realty</h5>
-                <h5 class="officeAddress">Address: 10640 Griffin Road Ste C104, Cooper City, FL, 33328, USA</h3>
-            </div>
-            <h3>CONTACT ME!</h3>
-            <div class="contactIcons">
-                <a href="https://x.com/dannydevelops82" target="_blank"  rel="noopener" class="fa-brands fa-x-twitter fa-3x"><span class="label"></span></a>
-                <a href="https://www.linkedin.com/in/daniel-barroso82/" target="_blank"  rel="noopener" class="fa-brands fa-linkedin fa-3x"><span class="label"></span></a>
-                <a href="https://www.instagram.com/danny.develops" class="fa-brands fa-square-instagram fa-3x" target="_blank"  rel="noopener"><span class="label"></span></a>
-                <a href="https://github.com/barroso2223" target="_blank"  rel="noopener" class="fa-brands fa-square-github fa-3x"><span class="label"></span></a>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div id="footer">
-            <div class="footerLeft">
-                <div id="contactUs">
-                    <h5>Contact Me (Links Below)</h5>
-                    <ul>
-                        <li>Daniel Barroso</li>
-                        <li><a href="tel:+17868739593" target="_blank"><i class="fa-solid fa-phone"></i> Call Me!  786-873-9593</a></li>
-                        <li><a href="sms:+17868739593" target="_blank"><i class="fa-regular fa-comments"></i> Text Me! 786-873-9593</a></li>
-                        <li><a href="mailto:dannybhomes@gmail.com" target="_blank"><i class="fa-regular fa-envelope"></i> Email Me! dannybhomes@gmail.com</a></li>
-                    </ul>
+                    <!-- Image -->
+                    <div class="col-md-6 text-center">
+                        <img src="/images/myImage.png" 
+                             alt="Daniel Barroso" 
+                             class="img-fluid rounded-circle shadow-lg my-img" 
+                             style="width: 300px; height: 300px; object-fit: cover;">
+                    </div>
                 </div>
             </div>
-            <div class="footerRight">
-                <div id="servicing">
-                    <h5>Servicing</h5>
-                    <ul>
-                        <li>Miami-Dade County</li>
-                        <li>Broward County</li>
-                        <li>Palm Beach County</li>
-                    </ul>
+        </main>
+
+    </section>
+
+    <!-- Services -->
+
+    <section id="services" class="vw-100 vh-auto bg-black">
+        <div class="p-5 text-center gap-2">
+            <div class="row g-3 justify-content-center justify-content-sm-evenly">
+    
+                <div class="col-12 col-sm-4 d-flex">
+                    <div class="card bg-black text-white border border-blue rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fs-3 textShadowBlk">Buyers</h5>
+                                <span><!-- SVG ICON --></span>
+                                <p class="card-text fs-5 textShadowBlk">Click here to start your search for your next dream home!</p>
+                            </div>
+                            <a href="/search.html" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">Search Properties</a>
+                        </div>
+                    </div>
                 </div>
-                <div id="broker">
-                    <h5>Broker</h5>
-                    <ul>
-                        <li>Christopher Snyder</li>
-                        <li>Premier Associates Realty</li>
-                        <li>License ID: BK3215191</li>
-                        <li>(954) 540-9019</li>
-                    </ul>
+    
+                <div class="col-12 col-sm-4 d-flex">
+                    <div class="card bg-black text-white border border-light rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fs-3 textShadowBlk">Sellers</h5>
+                                <span><!-- SVG ICON --></span>
+                                <p class="card-text fs-5 textShadowBlk">Click here to get an estimate of what your home is worth.</p>
+                            </div>
+                            <a href="/seller.html" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">Get Estimate</a>
+                        </div>
+                    </div>
                 </div>
-                <div id="brokerage">
-                    <h5>Brokerage</h5>
-                    <ul>
-                        <li>Premier Associates Realty, LLC.</li>
-                        <li>10640 Griffin Road Ste C104 </li>
-                        <li>Cooper City, FL,33328, USA</li>
-                        <li>(954) 866-8201</li>
-                    </ul>
+    
+                <div class="col-12 col-sm-4 d-flex">
+                    <div class="card bg-black text-white border border-light rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fs-3 textShadowBlk">Renters</h5>
+                                <span><!-- SVG ICON --></span>
+                                <p class="card-text fs-5 textShadowBlk">Browse rentals across South Florida.</p>
+                            </div>
+                            <a href="/rental.html" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">View Rentals</a>
+                        </div>
+                    </div>
                 </div>
+    
             </div>
         </div>
-        <div class="copyRight">
-            <p>&copyBarroso Digital Designs. All Rights Reserved. 2022</p>
+    </section>
+    
+
+    <!-- About -->
+
+    <section id="about" class="px-5 vh-100 vw-100">
+        <div class="row w-100 h-100 mx-auto col-sm-6 align-items-center justify-content-start text-white">
+            <div class="containerInfo mx-auto text-center text-sm-start col-sm-7 align-items-center text-white">
+                <h2 class="display-3 textShadowBlk">About Us</h2>
+                <p class="fs-2 textShadowBlk">With years of expertise, a passion for innovation, and a commitment to excellence, we’ve built a reputation for going above and beyond for our clients. Discover how we can help you achieve your goals — because your success is our success.</p>
+                <a href="#contact" class="btn btn-outline-primary btn-lg px-5 text-white">LET'S CHAT</a>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+    </section>
+
+    <!-- Associations -->
+
+    <section id="associations" class="vw-100 d-none d-sm-flex justify-content-center align-items-center m-auto pt-2 bg-white">
+        <img src="https://www.thankyourealty.com/public/themes/3061/images/SponsorLogosMiami.jpg" alt="Miami Associations Logos" class="img-fluid">
+    </section>
+      
+    <!-- Contact -->
+
+    <section id="contact" class="py-5 text-center mb-2">
+        <h2 class="px-2 display-3 text-custom ">Servicing South Florida Market</h2>
+        <img src="images/myImage.png" class="img-fluid my-3 rounded-circle my-img" style="max-width: 300px;" alt="Daniel Barroso">
+      
+        <div class="containerInfo d-flex flex-column justify-content-center align-items-center m-sm-auto mx-3">
+            <h3 class="my-3 display-4">Daniel Barroso</h3>
+            <p>License ID# 3501271</p>
+            <p class="display-3">Thank You Realty</p>
+            <p>9900 W Sample RD STE 300, Coral Springs, FL  33065</p>
+            <h4 class="mt-4">CONTACT ME!</h4>
+            <div class="d-flex justify-content-center gap-4 my-5">
+                <a href="mailto:dannybhomes@gmail.com" target="_blank" class="fa-solid fa-envelope fa-2x text-custom text-decoration-none hover"></a>
+                <a href="sms:+17868739593" target="_blank" class="fa-solid fa-comment fa-2x text-custom text-decoration-none hover"></a>
+                <a href="tel:+17868739593" target="_blank" class="fa-solid fa-phone fa-2x text-custom text-decoration-none hover"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+      
+    <footer class="bg-dark text-white py-4 mt-5">
+          <div class="row text-center">
+            <div class="col-md-4 mb-3">
+              <h5>Contact Me</h5>
+              <ul class="list-unstyled">
+                <li>Daniel Barroso</li>
+                <li><a class="text-white" href="tel:+17868739593">📞 Call Me</a></li>
+                <li><a class="text-white" href="sms:+17868739593">💬 Text Me</a></li>
+                <li><a class="text-white" href="mailto:dannybhomes@gmail.com">📧 Email Me</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-3">
+              <h5>Servicing</h5>
+              <ul class="list-unstyled">
+                <li>Miami-Dade</li><li>Broward</li><li>Palm Beach</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Broker Info</h5>
+              <ul class="list-unstyled">
+                <li>James "Jim" Gardner</li>
+                <li>Thank You Realty</li>
+                <li>License ID: CQ1045920</li>
+              </ul>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <p class="mb-0">&copy; Barroso Digital Designs. All Rights Reserved. 2022</p>
+          </div>
         </div>
     </footer>
+      
     <script src="main.js"></script>
 </body>
 </html>
