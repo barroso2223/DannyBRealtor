@@ -104,11 +104,18 @@ body {
 
 #home {
     width: 100dvw;
-    height: 100dvh;
+    height: auto;
 }
 
 .whiteBG {
     background-color: rgba(250, 250, 250, .9);
+}
+
+@media (max-width: 991px) {
+    #home .my-img {
+        width: 200px !important;
+        height: 200px !important;
+    }
 }
 
 /* Custom Navbar Styles */
