@@ -19,7 +19,7 @@
     --bgTheme2: rgb(110, 182, 166);
     --bgTheme3: red;
     --bgTheme4: gold;
-    --bgCustom: rgb(223, 196, 43);
+    --bgCustom: rgb(231, 200, 21);
 
     /*section Background Images Big Screens*/
 
@@ -316,11 +316,13 @@ video.bg-video {
     #contact {
         background-image: var(--contactBGImagesSM);
     }
+
+    .contactH2 {
+        font-size: 3rem !important;
+    }
 }
 
 /* Footer */
-
-
 
 
 footer {
