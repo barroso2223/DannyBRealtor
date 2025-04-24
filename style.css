@@ -67,7 +67,7 @@ body {
 
 .fa-solid:hover {
     color:
-     var(--bgTheme1);
+     var(--bgCustom);
 }
 
 .btn {
