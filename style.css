@@ -115,9 +115,14 @@ body {
 }
 
 @media (max-width: 991px) {
-    #home .my-img {
-        width: 150px !important;
-        height: 150px !important;
+
+    .imgContainer {
+        padding-bottom: 1rem;
+    }
+
+    .my-img {
+        width: 200px !important;
+        height: 200px !important;
     }
 }
 
