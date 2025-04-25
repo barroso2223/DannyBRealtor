@@ -105,7 +105,9 @@ body {
 
 #home {
     width: 100vw;
-    height: auto;
+    height: auto !important;
+    padding-bottom: 1rem !important;
+    margin-bottom: 1rem !important;
 }
 
 .whiteBG {
@@ -250,7 +252,8 @@ video.bg-video {
 
 #about {
     width: 100vw !important;
-    height: 100dvh !important;
+    height: auto !important;
+    padding-bottom: 1rem !important;
     position: relative;
     z-index: 1;
     text-shadow: 2px 2px 5px var(--clrMain900);
