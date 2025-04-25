@@ -104,7 +104,7 @@ body {
 /* Home */
 
 #home {
-    width: 100dvw;
+    width: 100vw;
     height: auto;
 }
 
@@ -249,7 +249,7 @@ video.bg-video {
 /* About */
 
 #about {
-    width: 100dvw !important;
+    width: 100vw !important;
     height: 100dvh !important;
     position: relative;
     z-index: 1;
@@ -272,6 +272,7 @@ video.bg-video {
   /* Search */
 
   #search {
+    width: 100vw !important;
     border: 1px solid var(--bgCustom);
     width: 100dvw; 
     height: auto;
@@ -309,14 +310,14 @@ video.bg-video {
 /* Contact */
 
 #contact {
-    width: 100dvw;
+    width: 100vw !important;
     height: auto;
     background-color: var(--textBlack);
     background-image: var(--contactBGImages);
     inset: 0 !important;
     background-size: cover;
     text-shadow: 2px 2px 5px var(--textWhite);
-    margin-bottom: -1rem !important;
+    margin-bottom: -3rem !important;
 }
 
 .my-img {
@@ -349,7 +350,7 @@ video.bg-video {
 
 
 footer {
-    width: 100dvw;
+    width: 100vw !important;
     height: auto;
     padding-top: 3rem;
     background-color: var(--textBlack) !important;
