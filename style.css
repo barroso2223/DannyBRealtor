@@ -120,6 +120,16 @@ body {
 }
 
 /* Custom Navbar Styles */
+
+.navbar-nav .nav-item.active .nav-link {
+    color: var(--bgCustom); /* Highlight color */
+    font-weight: bold;
+}
+.navbar-nav .nav-item .nav-link {
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+
 .navbar {
     transition: background-color 0.3s ease;
     background: rgba(255, 255, 255, 0.98);

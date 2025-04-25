@@ -19,12 +19,18 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <title>Danny B Homes</title>
     <meta name="trustpilot-one-time-domain-verification-id" content="d8e222fa-1fa1-4751-9fc7-41f67a3f175b"/>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="50">
+
     <section id="home" class="position-relative" style="width: 100dvw; height: 100vh;">
 
         <video class="bg-video" 
@@ -124,7 +130,7 @@
             <h2 class="text-white display-3 pb-3">Services</h2>
             <div class="row g-3 justify-content-center justify-content-sm-evenly">
     
-                <div class="col-12 col-sm-4 d-flex">
+                <div class="col-12 col-sm-4 d-flex" data-aos="slide-right" data-aos-duration="1500" data-aos-mirror="true">
                     <div class="card bg-black text-white border border-blue rounded-4 p-4 shadow-lg h-100 w-100">
                         <div class="card-body text-center d-flex flex-column justify-content-between">
                             <div>
@@ -137,7 +143,7 @@
                     </div>
                 </div>
     
-                <div class="col-12 col-sm-4 d-flex">
+                <div class="col-12 col-sm-4 d-flex" data-aos="slide-up" data-aos-duration="1500" data-aos-mirror="true">
                     <div class="card bg-black text-white border border-light rounded-4 p-4 shadow-lg h-100 w-100">
                         <div class="card-body text-center d-flex flex-column justify-content-between">
                             <div>
@@ -150,7 +156,7 @@
                     </div>
                 </div>
     
-                <div class="col-12 col-sm-4 d-flex">
+                <div class="col-12 col-sm-4 d-flex" data-aos="slide-left" data-aos-duration="1500" data-aos-mirror="true">
                     <div class="card bg-black text-white border border-light rounded-4 p-4 shadow-lg h-100 w-100">
                         <div class="card-body text-center d-flex flex-column justify-content-between">
                             <div>
@@ -172,7 +178,7 @@
 
     <section id="about" class="px-5 vh-100 vw-100">
         <div class="row w-100 h-100 mx-auto col-sm-6 align-items-center justify-content-start text-white">
-            <div class="containerInfo mx-auto text-center text-sm-start col-sm-7 align-items-center text-white">
+            <div class="containerInfo mx-auto text-center text-sm-start col-sm-7 align-items-center text-white" data-aos="zoom-in" data-aos-duration="1500" data-aos-offset="75" data-aos-mirror="true">
                 <h2 class="display-3 textShadowBlk">About Us</h2>
                 <p class="fs-2 textShadowBlk">With years of expertise, a passion for innovation, and a commitment to excellence, we’ve built a reputation for going above and beyond for our clients. Discover how we can help you achieve your goals, because your success is our success.</p>
                 <a href="#contact" class="btn btn-outline-primary btn-lg px-5 text-white">LET'S CHAT</a>
@@ -184,16 +190,16 @@
     <!-- Associations -->
 
     <section id="associations" class="vw-100 d-none d-sm-flex justify-content-center align-items-center m-auto pt-2 bg-white">
-        <img src="https://www.thankyourealty.com/public/themes/3061/images/SponsorLogosMiami.jpg" alt="Miami Associations Logos" class="img-fluid">
+        <img src="https://www.thankyourealty.com/public/themes/3061/images/SponsorLogosMiami.jpg" alt="Miami Associations Logos" class="img-fluid" data-aos="flip-right" data-aos-duration="2500">
     </section>
       
     <!-- Contact -->
 
     <section id="contact" class="py-5 text-center mb-2">
         <h2 class="contactH2 px-2 display-4 text-custom contactH2 textShadowBlk">Servicing South Florida Market</h2>
-        <img src="images/myImage.png" class="img-fluid my-3 rounded-circle my-img" style="max-width: 300px;" alt="Daniel Barroso">
+        <img src="images/myImage.png" class="img-fluid my-3 rounded-circle my-img" style="max-width: 300px;" alt="Daniel Barroso" data-aos="zoom-in" data-aos-duration="1500">
       
-        <div class="containerInfo d-flex flex-column justify-content-center align-items-center m-sm-auto mx-3">
+        <div class="containerInfo d-flex flex-column justify-content-center align-items-center m-sm-auto mx-3" data-aos="slide-up" data-aos-duration="1500">
             <h3 class="my-3 display-4">Daniel Barroso</h3>
             <p>License ID# 3501271</p>
             <p class="display-3">Thank You Realty</p>
@@ -242,5 +248,12 @@
     </footer>
       
     <script src="main.js"></script>
+
+    <script>
+  var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: '#navbarNav'  // Ensure this targets the correct navbar ID
+  });
+</script>
+
 </body>
 </html>
