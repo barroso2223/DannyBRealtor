@@ -122,7 +122,7 @@ body {
 /* Custom Navbar Styles */
 
 .navbar-nav .nav-item.active .nav-link {
-    color: var(--bgCustom); /* Highlight color */
+    color: var(--bgCustom) !important; /* Highlight color */
     font-weight: bold;
 }
 .navbar-nav .nav-item .nav-link {
