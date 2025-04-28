@@ -73,6 +73,9 @@ body {
 
 .btn {
     background-color: var(--bgCustom);
+    width: max-content;
+    margin: auto;
+    padding: 0 1rem !important;
 }
 
 .btn:hover {
