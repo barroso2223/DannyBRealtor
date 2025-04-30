@@ -260,7 +260,7 @@ video.bg-video {
 
 #about {
     width: 100vw !important;
-    height: auto !important;
+    height: 80vh !important;
     padding-bottom: 1rem !important;
     position: relative;
     z-index: 1;
