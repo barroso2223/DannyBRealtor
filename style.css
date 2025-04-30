@@ -280,6 +280,13 @@ video.bg-video {
     z-index: -1;
 }
 
+@media (max-width: 992px) {
+    #about,
+    section {
+        height: auto !important;
+    }
+}
+
   /* Search */
 
   #search {
