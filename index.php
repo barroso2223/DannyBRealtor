@@ -1,0 +1,375 @@
+<?php
+// Include the templates and provide the data
+include 'templates/gallery-template.php';
+include 'templates/packages-template.php';
+include 'templates/faq-template.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Danny B Homes" content="Realestate Site to buy and sell properties">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+    <!-- Required Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <title>Danny B Homes</title>
+    <meta name="trustpilot-one-time-domain-verification-id" content="d8e222fa-1fa1-4751-9fc7-41f67a3f175b"/>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="50">
+
+    <section id="home" class="position-relative py-5" style="width: 100dvw; height: 100vh;">
+
+        <video class="bg-video position-fixed" 
+        src="/videos/miamiBeachVid.mp4" 
+        autoplay loop muted playsinline></video>
+
+        <nav class="navbar navbar-expand-lg fixed-top bg-white">
+            <div class="container-fluid px-lg-5 px-3" style="height: 100px;">
+                <div class="d-flex w-100 justify-content-between align-items-center px-lg-5">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#home">
+                        <img src="/images/Thank-You-Realty-Logo.jpg" alt="Company Logo" class="img-fluid" style="width: 100px;">
+                    </a>
+    
+        
+                    <!-- Navigation Links -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto gap-2 fs-5">
+                            <li class="nav-item"><a class="nav-link text-black" href="#home">HOME</a></li>
+                            <li class="nav-item"><a class="nav-link text-black" href="#services">SERVICES</a></li>
+                            <li class="nav-item"><a class="nav-link text-black" href="#about">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link text-black" href="#listings">LISTINGS</a></li>
+                            <li class="nav-item"><a class="nav-link text-black" href="#contact">CONTACT</a></li>
+                        </ul>
+                        
+                        <!-- Desktop Icons -->
+                        <div class="d-none d-lg-flex gap-3 ms-4">
+                            <a href="mailto:dannybhomes@gmail.com" class="text-dark">
+                                <i class="fa-solid fa-envelope fa-2x text-custom hoverBlk"></i>
+                            </a>
+                            <a href="sms:+17868739593" class="text-dark">
+                                <i class="fa-solid fa-comment fa-2x text-custom hoverBlk"></i>
+                            </a>
+                            <a href="tel:+17868739593" class="text-dark">
+                                <i class="fa-solid fa-phone fa-2x text-custom hoverBlk"></i>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!-- Mobile Icons -->
+                    <div class="d-flex d-lg-none gap-3">
+                        <a href="mailto:dannybhomes@gmail.com" class="text-dark">
+                            <i class="fa-solid fa-envelope fa-2x text-custom"></i>
+                        </a>
+                        <a href="sms:+17868739593" class="text-dark">
+                            <i class="fa-solid fa-comment fa-2x text-custom"></i>
+                        </a>
+                        <a href="tel:+17868739593" class="text-dark">
+                            <i class="fa-solid fa-phone fa-2x text-custom"></i>
+                        </a>
+                    </div>
+
+                    
+                    <!-- Hamburger Button -->
+                    <button class="navbar-toggler d-lg-none border-0 shadow-none" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" 
+                            aria-expanded="false" 
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+            </div>
+        </nav>
+        
+
+        <!-- Main Content -->
+        <main class="position-relative vh-100 vw-100 d-flex align-items-center pt-5 mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Text Content -->
+                    <div class="col-md-6 text-center text-md-start text-white mb-5 mb-md-0 mt-2 pt-5 px-3 pt-lg-0 ">
+                        <h1 class="display-4 fw-bold mb-4 textShadowBlk mt-5">Helping You Buy, Sell, and Thrive in Miami-Dade, Broward, and Palm Beach</h1>
+                        <p class="lead mb-4 textShadowBlk">From cozy condos to luxury estates, I deliver unmatched service for every client.</p>
+                        <div class="d-flex flex-wrap justify-content-center m-auto gap-lg-2 px-lg-2 gap-2 px-4">
+                            <a href="/search.html" class="btn btn-outline-primary btn-lg text-white shadow-lg" target="_blank">BUYER</a>
+                            <a href="/seller.html" class="btn btn-outline-primary btn-lg text-white shadow-lg" target="_blank">SELLER</a>
+                            <a href="/rental.html" class="btn btn-outline-primary btn-lg text-white shadow-lg" target="_blank">RENTER</a>
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="imgContainer col-md-6 text-center mb-2">
+                        <img src="/images/myImage.png" 
+                             alt="Daniel Barroso" 
+                             class="img-fluid rounded-circle shadow-lg my-img mb-3" 
+                             style="width: 300px; height: 300px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </section>
+
+    <!-- Services -->
+
+    <section id="services" class="vh-auto bg-black" style="width: 100vw;">
+        <div class="p-5 text-center gap-2">
+            <h2 class="text-white display-3 pb-3">Services</h2>
+            <div class="row g-3 justify-content-center justify-content-sm-evenly">
+    
+                <div class="col-12 col-sm-4 d-flex responsive-aos" data-desktop-aos="slide-right" data-mobile-aos="flip-right" data-aos="fade" data-aos-duration="1500">
+                    <div class="card bg-black text-white border border-blue rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fs-3 textShadowBlk">Buyers</h5>
+                                <span><!-- SVG ICON --></span>
+                                <p class="card-text fs-5 textShadowBlk">Click here to start your search for your next dream home!</p>
+                            </div>
+                            <a href="/search.html" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">Search Properties</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-12 col-sm-4 d-flex responsive-aos" data-desktop-aos="slide-up" data-mobile-aos="flip-left" data-aos="fade" data-aos-duration="1500">
+                    <div class="card bg-black text-white border border-light rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fs-3 textShadowBlk">Sellers</h5>
+                                <span><!-- SVG ICON --></span>
+                                <p class="card-text fs-5 textShadowBlk">Click here to get an estimate of what your home is worth.</p>
+                            </div>
+                            <a href="/seller.html" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">Get Estimate</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-12 col-sm-4 d-flex responsive-aos" data-desktop-aos="slide-left" data-mobile-aos="flip-right" data-aos="fade" data-aos-duration="1500">
+                    <div class="card bg-black text-white border border-light rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fs-3 textShadowBlk">Renters</h5>
+                                <span><!-- SVG ICON --></span>
+                                <p class="card-text fs-5 textShadowBlk">Browse rentals across South Florida.</p>
+                            </div>
+                            <a href="/rental.html" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">View Rentals</a>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- About -->
+
+    <section id="about" class="p-5 vh-100 vw-100">
+        <div class="row w-100 h-100 mx-auto col-sm-6 align-items-center justify-content-start text-white">
+            <div class="containerInfo mx-auto text-center text-sm-start col-sm-7 align-items-center text-white responsive-aos" data-aos="zoom-in" data-aos-duration="1500">
+                <h2 class="display-3 textShadowBlk">About Us</h2>
+                <p class="fs-2 textShadowBlk">With years of expertise, a passion for innovation, and a commitment to excellence, we’ve built a reputation for going above and beyond for our clients. Discover how we can help you achieve your goals, because your success is our success.</p>
+                <div class="d-flex flex-wrap justify-content-center m-auto gap-2">
+                    <a href="/search.html" class="btn btn-outline-primary btn-lg text-white shadow-lg" target="_blank">BUYER</a>
+                    <a href="/seller.html" class="btn btn-outline-primary btn-lg text-white shadow-lg" target="_blank">SELLER</a>
+                    <a href="/rental.html" class="btn btn-outline-primary btn-lg text-white shadow-lg" target="_blank">RENTER</a>
+                </div>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+    </section>
+
+    <!-- Listings -->
+
+    <section id="listings" class="vh-auto bg-black" style="width: 100vw;">
+        <div class="p-5 text-center gap-2">
+            <h2 class="text-white display-3 pb-3">Current Listings</h2>
+            <div class="row g-5 justify-content-center justify-content-sm-evenly">
+    
+                <div class="col-12 col-sm-4 d-flex responsive-aos justify-content-center" style="width: 300px; height: auto;" data-desktop-aos="zoom-in" data-mobile-aos="zoom-in" data-aos="fade" data-aos-duration="1500">
+                    <div class="card-listing bgcustom text-white border border-blue rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <h5 class="card-title fs-3 textShadowBlk">Plantation Rental Home</h5>
+                                <span><img src="https://scontent-atl3-3.xx.fbcdn.net/v/t45.5328-4/495374510_2570640353140556_2561076569721782783_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=TzPd732z-5EQ7kNvwGKqz8l&_nc_oc=AdkCEipdkOKzV-u6Cm0t5n9ekaBRuf2QS6n7nycLnBxHCtdr6frzdQPMl-3-vCjy39s&_nc_zt=23&_nc_ht=scontent-atl3-3.xx&_nc_gid=9PR7VUSnUfl8OM-KLyCfBg&oh=00_AfEL1FC9g22oxEHUqWx-mHnKZtaOa3jB28L0qdv7sYfX2Q&oe=68196FD6" style="width: 80%; height: 90%;" alt="">
+                                    <p>$4,099/Month</p>
+                                    <a href="https://www.facebook.com/share/1CZ1Ntw2ib/" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">Check Out this Listing</a> 
+                                     </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="col-12 col-sm-4 d-flex responsive-aos justify-content-center" style="width: 300px; height: auto;" data-desktop-aos="zoom-in" data-mobile-aos="zoom-in" data-aos="fade" data-aos-duration="1500">
+                    <div class="card-listing bgcustom text-white border border-blue rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <h5 class="card-title fs-3 textShadowBlk">Tamarac Rental Home</h5>
+                                <span><img src="https://scontent-atl3-2.xx.fbcdn.net/v/t45.5328-4/491772379_1350932236148184_5193288436957189693_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=247b10&_nc_ohc=PgVIS1ndUPcQ7kNvwHh-YbZ&_nc_oc=AdnhP_xT30wv53ZdOfN2qmyhtuZeeAMEM9WnbMZLOHgI5bweRLfnM1gZu8EbRprDf1c&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=vJ_ekwd1GTGEkd6-f-7EmA&oh=00_AfFuWlSuaM3eMGqSWsEotKStnN20w680vqlPCXkZlJSkSg&oe=68196298" style="width: 80%; height: 90%;" alt="">
+                                    <p>$3,300/Month</p>
+                                    <a href="https://www.facebook.com/share/15TeTJySRt/" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">Check Out this Listing</a>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="col-12 col-sm-4 d-flex responsive-aos justify-content-center" style="width: 300px; height: auto;" data-desktop-aos="zoom-in" data-mobile-aos="zoom-in" data-aos="fade" data-aos-duration="1500">
+                    <div class="card-listing bgcustom text-white border border-blue rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <h5 class="card-title fs-3 textShadowBlk">Miramar Rental Home</h5>
+                                <span><img src="https://scontent-atl3-2.xx.fbcdn.net/v/t45.5328-4/493854633_667178476203050_5252676325464498451_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=247b10&_nc_ohc=uDjLwNI46YcQ7kNvwGP7m98&_nc_oc=AdlQ44MK4XbAuNDiE_y8S0jNzGGf3sVmnV30-Dp6uWp3I3Azac5Lghl10sBGB0_phsY&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=w1j8PK-iP3ksL1snaiV46Q&oh=00_AfFylJOHbaKuB27zoRMZmeVPu7YVnWKCusxpCokhfmHqDw&oe=68195C9C" style="width: 80%; height: 90%;" alt="">
+                                    <p>$3,200/Month</p>
+                                    <a href="https://www.facebook.com/share/19Fq92RRHQ/" class="btn btn-outline-light btn-primary btn-lg m-3" target="_blank">Check Out this Listing</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="col-12 col-sm-4 d-flex responsive-aos justify-content-center" style="width: 300px; height: auto;" data-desktop-aos="zoom-in" data-mobile-aos="zoom-in" data-aos="fade" data-aos-duration="1500">
+                    <div class="card-listing bgcustom text-white border border-blue rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <h5 class="card-title fs-3 textShadowBlk">Weston Rental Home</h5>
+                                <span><img src="https://scontent-atl3-1.xx.fbcdn.net/v/t45.5328-4/491772499_570549826065456_8361038029879700941_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_ohc=jK_3UvH3uJcQ7kNvwEKTByM&_nc_oc=Adn7lz8DxoPJmdC_40SWp1n5Yo1WGYGgsP-RPbuzInB_U-_zHyKG6YifItYI_Bk7Jz4&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=J4Lcu2mnEmrsWW5CmY3wXg&oh=00_AfG60yLnZqH1juQTQ7suEV6leSZ272ry46aSTpbd2auQQg&oe=68196310" style="width: 80%; height: 90%;" alt="">
+                                    <p>$4,500/Month</p>
+                                    <a href="https://www.facebook.com/share/169nqVTJv2/" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">Check Out this Listing</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-12 col-sm-4 d-flex responsive-aos justify-content-center" style="width: 300px; height: auto;" data-desktop-aos="zoom-in" data-mobile-aos="zoom-in" data-aos="fade" data-aos-duration="1500">
+                    <div class="card-listing bgcustom text-white border border-blue rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <h5 class="card-title fs-3 textShadowBlk">Plantation Rental Home</h5>
+                                <span><img src="https://scontent-atl3-1.xx.fbcdn.net/v/t45.5328-4/491761615_1683279056405178_1311891990713472470_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=X1f9B0v84wwQ7kNvwGIlPnG&_nc_oc=AdnqnsuQJ2GMaQA0N8oB4T3K3kU1CB-eBe4FHsWhFu6VHhxOatusu8MwFjlXnWh8KVw&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=okGAiab1I0plJ_MLHP1Tkw&oh=00_AfGU4VFiq0eicuIY6Q1K0v2nTGa9YXwnlJ-joyQBdhzPuQ&oe=681977B5" style="width: 80%; height: 90%;" alt="">
+                                    <p>$4,500/Month</p>
+                                    <a href="https://www.facebook.com/share/1EpWvF7hgm/" class="btn btn-outline-light btn-primary btn-lg m-3" target="_blank">Check Out this Listing</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="col-12 col-sm-4 d-flex responsive-aos justify-content-center" style="width: 300px; height: auto;" data-desktop-aos="zoom-in" data-mobile-aos="zoom-in" data-aos="fade" data-aos-duration="1500">
+                    <div class="card-listing bgcustom text-white border border-blue rounded-4 p-4 shadow-lg h-100 w-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <h5 class="card-title fs-3 textShadowBlk">Tamarac Rental Home</h5>
+                                <span><img src="https://scontent-atl3-2.xx.fbcdn.net/v/t45.5328-4/489372717_1262440285302315_4753241362715211187_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=R3SZLXGZFnEQ7kNvwHKWveL&_nc_oc=AdnRqiGxZs-ZpVATki4eyi2xPbgmuV947ctSKXrKZ62mSufv8JL2Dt4axiQbZTz5wOw&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=WbI0pbt5DAmS4TOrM_W_gg&oh=00_AfFD4994N5gi9LCTL5VjaN8tt7O6pYR6R3rEeNSN1-6Hew&oe=68197620" style="width: 80%; height: 90%;" alt="">
+                                    <p>$4,500/Month</p>
+                                    <a href="https://www.facebook.com/share/1Bu9du6jaF/" class="btn btn-outline-light btn-primary btn-lg mt-3" target="_blank">Check Out this Listing</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                
+    
+            </div>
+        </div>
+    </section>
+    
+
+
+
+    <!-- Associations -->
+
+    <section id="associations" class="vw-100 d-none d-sm-flex justify-content-center align-items-center m-auto pt-2 bg-white">
+        <img src="https://www.thankyourealty.com/public/themes/3061/images/SponsorLogosMiami.jpg" alt="Miami Associations Logos" class="img-fluid responsive-aos" data-aos="flip-right" data-aos-duration="2500">
+    </section>
+      
+    <!-- Contact -->
+
+    <section id="contact" class="py-5 text-center mb-2">
+        <h2 class="contactH2 px-2 display-4 text-custom contactH2 textShadowBlk">Servicing South Florida Market</h2>
+        <img src="images/myImage.png" class="img-fluid my-3 rounded-circle my-img responsive-aos" style="max-width: 300px;" alt="Daniel Barroso" data-aos="zoom-in" data-aos-duration="1500">
+      
+        <div class="containerInfo d-flex flex-column justify-content-center align-items-center m-sm-auto mx-3 responsive-aos" data-aos="slide-up" data-aos-duration="1500">
+            <h3 class="my-3 display-4">Daniel Barroso</h3>
+            <p>License ID# 3501271</p>
+            <p class="display-3">Thank You Realty</p>
+            <p>9900 W Sample RD STE 300, Coral Springs, FL  33065</p>
+            <h4 class="mt-4">CONTACT ME!</h4>
+            <div class="d-flex justify-content-center gap-4 my-5">
+                <a href="mailto:dannybhomes@gmail.com" target="_blank" class="fa-solid fa-envelope fa-2x text-custom text-decoration-none hoverBlk"></a>
+                <a href="sms:+17868739593" target="_blank" class="fa-solid fa-comment fa-2x text-custom text-decoration-none hoverBlk"></a>
+                <a href="tel:+17868739593" target="_blank" class="fa-solid fa-phone fa-2x text-custom text-decoration-none hoverBlk"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+      
+    <footer class="bg-dark text-white py-4 mt-5">
+          <div class="row text-center">
+            <div class="col-md-4 mb-3">
+              <h5>Contact Me</h5>
+              <ul class="list-unstyled">
+                <li>Daniel Barroso</li>
+                <li><a class="text-white" href="tel:+17868739593">📞 Call Me</a></li>
+                <li><a class="text-white" href="sms:+17868739593">💬 Text Me</a></li>
+                <li><a class="text-white" href="mailto:dannybhomes@gmail.com">📧 Email Me</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-3">
+              <h5>Servicing</h5>
+              <ul class="list-unstyled">
+                <li>Miami-Dade</li><li>Broward</li><li>Palm Beach</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Broker Info</h5>
+              <ul class="list-unstyled">
+                <li>James "Jim" Gardner</li>
+                <li>Thank You Realty</li>
+                <li>License ID: CQ1045920</li>
+              </ul>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <p class="mb-0">&copy; Barroso Digital Designs. All Rights Reserved. 2022</p>
+          </div>
+        </div>
+    </footer>
+      
+    <script src="main.js"></script>
+
+    <script>
+  var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: '#navbarNav'  // Ensure this targets the correct navbar ID
+  });
+</script>
+
+</body>
+</html>

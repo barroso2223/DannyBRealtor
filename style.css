@@ -20,6 +20,16 @@
     --bgTheme3: red;
     --bgTheme4: gold;
     --bgCustom: rgb(143, 124, 18);
+    --primary-color: #0d203c;
+    --secondary-color: #f76c6c;
+    --background-color: #f4f7fa;
+    --card-background: #ffffff;
+    --border-color: #e0e6f1;
+    --text-color: black;
+    --heading-color: #0d203c;
+    --input-bg: #ffffff;
+    --total-bg: #fff0f0;
+    --total-text: #e55c5c;
 
     /*section Background Images Big Screens*/
 
@@ -323,6 +333,77 @@ video.bg-video {
   }
   
   
+  /* --- Main Container (Desktop) --- */
+    #calculator {
+        width: 100dvw;
+        background-color: var(--bgCustom);
+    }
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 1000px;
+            width: 100%;
+            background-color: var(--bgCustom);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- General Element Styling --- */
+        .form-group { margin-bottom: 20px; color: var(--text-color);}
+        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px;  color: var(--text-color);}
+        .input-wrapper { position: relative; }
+        .input-wrapper .symbol { position: absolute; top: 50%; transform: translateY(-50%); left: 15px; color: var(--text-color); font-weight: 500; }
+        input[type="number"], select { width: 100%; padding: 12px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 16px; font-family: 'Inter', sans-serif; box-sizing: border-box; transition: border-color 0.2s, box-shadow 0.2s; }
+        input[type="number"] { padding-left: 30px; }
+        input[type="number"]:focus, select:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(13, 32, 60, 0.1); }
+        .split-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .left-column, .right-column { display: flex; flex-direction: column; gap: 30px; }
+        .section-card { padding: 25px; background-color: #fff; border: 1px solid var(--border-color); border-radius: 12px; }
+        .breakdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .breakdown-item, .summary-item { padding: 15px; background-color: var(--background-color); border-radius: 10px; color: var(--text-color); }
+        .breakdown-item p, .summary-item p { margin: 0; font-size: 14px; color: var(--text-color); }
+        .breakdown-item h3, .summary-item h3 { margin: 5px 0 0 0; font-size: 22px; color: var(--heading-color); font-weight: 600; }
+        .total-payment { padding: 20px; text-align: center; background-color: var(--total-bg); border-radius: 12px; margin-bottom: 20px; }
+        .total-payment p { margin: 0; font-size: 14px; color: var(--total-text); font-weight: 500; }
+        .total-payment h3 { margin: 5px 0 0 0; font-size: 36px; color: var(--total-text); font-weight: 700; }
+        .summary-list { display: flex; flex-direction: column; gap: 10px; }
+        
+        /* --- Early Payoff Section --- */
+        .payoff-result {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary-color);
+            min-height: 48px;
+        }
+        .payoff-result p { margin: 5px 0; }
+        .payoff-result span { font-weight: 700; color: var(--secondary-color); }
+        
+        /* --- Disclaimer Styling --- */
+        .disclaimer {
+            font-size: 12px;
+            color: var(--text-color);
+            font-style: italic;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 1100px) {
+            body { padding: 20px 10px; }
+            .calculator-container { grid-template-columns: 1fr; padding: 25px; gap: 30px; }
+            .total-payment h3 { font-size: 32px; }
+            .breakdown-item h3, .summary-item h3 { font-size: 20px; }
+        }
+        
+        @media (max-width: 700px) {
+            .split-group { grid-template-columns: 1fr; gap: 20px; }
+            .split-group .form-group { margin-bottom: 0; }
+            .breakdown-grid { grid-template-columns: 1fr; }
+            .calculator-container { padding: 20px; }
+        }
 
 
 /* Contact */

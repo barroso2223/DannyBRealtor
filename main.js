@@ -64,4 +64,116 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.classList.remove('scrolled');
         }
     });
+
+    
+    const inputs = document.querySelectorAll('input, select');
+    const totalMonthlyPaymentEl = document.getElementById('total-monthly-payment');
+    const pAndIEl = document.getElementById('p-and-i');
+    const monthlyTaxEl = document.getElementById('monthly-tax');
+    const monthlyInsuranceEl = document.getElementById('monthly-insurance');
+    const monthlyHoaEl = document.getElementById('monthly-hoa');
+    const summaryDownPaymentEl = document.getElementById('summary-down-payment');
+    const summaryLoanAmountEl = document.getElementById('summary-loan-amount');
+    const summaryTotalInterestEl = document.getElementById('summary-total-interest');
+    const payoffOutputEl = document.getElementById('payoff-output');
+
+    // --- Helper Function ---
+    const formatCurrency = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+
+    // --- Main Calculation ---
+    function calculateMortgage() {
+        // Get input values
+        const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
+        const downPaymentPercent = parseFloat(document.getElementById('down-payment').value) || 0;
+        const interestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
+        const loanTermYears = parseInt(document.getElementById('loan-term').value) || 0;
+        const propertyTaxPercent = parseFloat(document.getElementById('property-tax').value) || 0;
+        const homeInsuranceAnnual = parseFloat(document.getElementById('home-insurance').value) || 0;
+        const hoaFeeMonthly = parseFloat(document.getElementById('hoa-fee').value) || 0;
+        
+        // Core mortgage calculations
+        const downPaymentAmount = homePrice * (downPaymentPercent / 100);
+        const loanAmount = homePrice - downPaymentAmount;
+        const monthlyInterestRate = (interestRate / 100) / 12;
+        const numberOfPayments = loanTermYears * 12;
+        
+        let monthlyPAndI = 0;
+        if (loanAmount > 0 && monthlyInterestRate > 0) {
+            monthlyPAndI = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+        } else if (loanAmount > 0) {
+            monthlyPAndI = loanAmount / numberOfPayments;
+        }
+
+        const originalTotalInterest = (monthlyPAndI * numberOfPayments) - loanAmount;
+        const monthlyPropertyTax = (homePrice * (propertyTaxPercent / 100)) / 12;
+        const monthlyInsurance = homeInsuranceAnnual / 12;
+        const totalMonthlyPayment = monthlyPAndI + monthlyPropertyTax + monthlyInsurance + hoaFeeMonthly;
+
+        // Update UI
+        totalMonthlyPaymentEl.textContent = formatCurrency(totalMonthlyPayment);
+        pAndIEl.textContent = formatCurrency(monthlyPAndI);
+        monthlyTaxEl.textContent = formatCurrency(monthlyPropertyTax);
+        monthlyInsuranceEl.textContent = formatCurrency(monthlyInsurance);
+        monthlyHoaEl.textContent = formatCurrency(hoaFeeMonthly);
+        summaryDownPaymentEl.textContent = formatCurrency(downPaymentAmount);
+        summaryLoanAmountEl.textContent = formatCurrency(loanAmount);
+        summaryTotalInterestEl.textContent = formatCurrency(originalTotalInterest > 0 ? originalTotalInterest : 0);
+
+        // Pass original total interest to payoff calculator
+        calculateEarlyPayoff(loanAmount, monthlyPAndI, monthlyInterestRate, numberOfPayments, originalTotalInterest);
+    }
+    
+    // --- Early Payoff Calculation ---
+    function calculateEarlyPayoff(loanAmount, monthlyPAndI, monthlyInterestRate, originalNumberOfPayments, originalTotalInterest) {
+        const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
+        const frequency = document.getElementById('payment-frequency').value;
+
+        if (extraPayment <= 0 || loanAmount <= 0) {
+            payoffOutputEl.innerHTML = '';
+            return;
+        }
+
+        let equivalentMonthlyExtra = 0;
+        if (frequency === 'monthly') equivalentMonthlyExtra = extraPayment;
+        else if (frequency === 'bi-weekly') equivalentMonthlyExtra = extraPayment * 26 / 12;
+        else if (frequency === 'yearly') equivalentMonthlyExtra = extraPayment / 12;
+
+        let remainingBalance = loanAmount;
+        let months = 0;
+        let newTotalInterestPaid = 0;
+        const totalMonthlyPaymentWithExtra = monthlyPAndI + equivalentMonthlyExtra;
+        
+        while (remainingBalance > 0) {
+            const interestThisMonth = remainingBalance * monthlyInterestRate;
+            if (totalMonthlyPaymentWithExtra <= interestThisMonth) {
+                payoffOutputEl.innerHTML = `<p>Extra payment isn't enough to cover interest.</p>`;
+                return;
+            }
+            newTotalInterestPaid += interestThisMonth;
+            remainingBalance -= (totalMonthlyPaymentWithExtra - interestThisMonth);
+            months++;
+            if (months > originalNumberOfPayments * 2) break; // Safety break
+        }
+
+        // Time saved calculations
+        const yearsSaved = Math.floor((originalNumberOfPayments - months) / 12);
+        const monthsSaved = (originalNumberOfPayments - months) % 12;
+        const yearsPaid = Math.floor(months / 12);
+        const monthsPaid = months % 12;
+
+        // Money saved calculation
+        const interestSaved = originalTotalInterest - newTotalInterestPaid;
+
+        // Update the UI with both time and money saved
+        payoffOutputEl.innerHTML = `
+            <p>Paid off in <strong>${yearsPaid} years, ${monthsPaid} months</strong> (saving ${yearsSaved} years, ${monthsSaved} months).</p>
+            <p>Total interest saved: <span>${formatCurrency(interestSaved > 0 ? interestSaved : 0)}</span></p>
+        `;
+    }
+
+    // --- Event Listeners ---
+    inputs.forEach(input => input.addEventListener('input', calculateMortgage));
+    
+    // Initial calculation on page load
+    calculateMortgage();
 });
