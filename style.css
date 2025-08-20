@@ -70,6 +70,8 @@ body {
     overflow-x: hidden;
     font-family: "Poppins", serif;
     background-color: var(--textBlack);
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .btn-outline-primary {
@@ -112,6 +114,10 @@ body {
 
 .text-custom {
     color: rgb(40, 30, 46);
+}
+
+section {
+    min-width: 100vw !important;
 }
 
 /* Home */
