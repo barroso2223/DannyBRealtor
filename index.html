@@ -205,100 +205,102 @@
         
         <div class="calculator-container bg-white rounded-4">
             <div class="left-column">
-                <form id="mortgage-form">
-                    <h2>Loan Details</h2>
+            <form id="mortgage-form">
+                <h2>Loan Details</h2>
+                <div class="form-group">
+                    <label for="home-price">Home Price</label>
+                    <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="home-price" value="675000"></div>
+                </div>
+                <div class="split-group">
                     <div class="form-group">
-                        <label for="home-price">Home Price</label>
-                        <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="home-price" value="675000"></div>
-                    </div>
-                    <div class="split-group">
-                        <div class="form-group">
-                            <label for="down-payment">Down Payment (%)</label>
-                            <div class="input-wrapper"><span class="symbol">%</span><input type="number" id="down-payment" value="5" style="padding-left: 30px;"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="interest-rate">Interest Rate (%)</label>
-                             <div class="input-wrapper"><span class="symbol">%</span><input type="number" id="interest-rate" value="7.25" step="0.01" style="padding-left: 30px;"></div>
-                        </div>
-                    </div>
-                     <div class="form-group">
-                        <label for="loan-term">Loan Term (years)</label>
-                        <select id="loan-term">
-                            <option value="30">30 years</option>
-                            <option value="20">20 years</option>
-                            <option value="15">15 years</option>
-                            <option value="10">10 years</option>
-                        </select>
-                    </div>
-
-                    <h2>Additional Costs</h2>
-                    <div class="split-group">
-                        <div class="form-group">
-                            <label for="property-tax">Property Tax (% ann.)</label>
-                            <div class="input-wrapper"><span class="symbol">%</span><input type="number" id="property-tax" value="1.2" step="0.01" style="padding-left: 30px;"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="home-insurance">Insurance (ann.)</label>
-                            <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="home-insurance" value="1200"></div>
-                        </div>
+                        <label for="down-payment">Down Payment (%)</label>
+                        <div class="input-wrapper"><span class="symbol">%</span><input type="number" id="down-payment" value="5" style="padding-left: 30px;"></div>
                     </div>
                     <div class="form-group">
-                        <label for="hoa-fee">HOA Fee (monthly)</label>
-                        <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="hoa-fee" value="0"></div>
+                        <label for="interest-rate">Interest Rate (%)</label>
+                         <div class="input-wrapper"><span class="symbol">%</span><input type="number" id="interest-rate" value="7.25" step="0.01" style="padding-left: 30px;"></div>
                     </div>
-                </form>
-            </div>
+                </div>
+                 <div class="form-group">
+                    <label for="loan-term">Loan Term (years)</label>
+                    <select id="loan-term">
+                        <option value="30">30 years</option>
+                        <option value="20">20 years</option>
+                        <option value="15">15 years</option>
+                        <option value="10">10 years</option>
+                    </select>
+                </div>
 
-            <div class="right-column">
-                <div class="section-card">
-                     <h2>Monthly Payment Breakdown</h2>
-                    <div class="total-payment">
-                        <p>Total Monthly Payment</p>
-                        <h3 id="total-monthly-payment">$5,380</h3>
+                <h2>Additional Costs</h2>
+                <div class="split-group">
+                    <div class="form-group">
+                        <label for="property-tax">Property Tax (yearly)</label> <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="property-tax" value="8100"></div> </div>
+                    <div class="form-group">
+                        <label for="home-insurance">Home Insurance (yearly)</label>
+                        <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="home-insurance" value="1200"></div>
                     </div>
-                    <div class="breakdown-grid">
-                        <div class="breakdown-item"><p>Principal & Interest</p><h3 id="p-and-i">$4,605</h3></div>
-                        <div class="breakdown-item"><p>Property Tax</p><h3 id="monthly-tax">$675</h3></div>
-                        <div class="breakdown-item"><p>Insurance</p><h3 id="monthly-insurance">$100</h3></div>
-                        <div class="breakdown-item"><p>HOA</p><h3 id="monthly-hoa">$0</h3></div>
-                    </div>
-                    <p class="disclaimer">
-                        This is an estimate for informational purposes only. Final payment may vary based on your final loan terms and other factors.
-                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="hoa-fee">HOA Fee (monthly)</label>
+                    <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="hoa-fee" value="0"></div>
                 </div>
 
                 <div class="section-card">
-                    <h2>Early Payoff Calculator</h2>
-                    <p style="margin-top:0; margin-bottom:15px; font-size: 14px;">See how extra payments can shorten your loan term and save you money.</p>
-                    <div class="split-group">
-                         <div class="form-group">
-                            <label for="extra-payment">Additional Payment</label>
-                            <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="extra-payment" value="0" min="0"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="payment-frequency">Frequency</label>
-                            <select id="payment-frequency">
-                                <option value="monthly">Monthly</option>
-                                <option value="bi-weekly">Bi-Weekly</option>
-                                <option value="yearly">Yearly</option>
-                            </select>
-                        </div>
+                <h2>Early Payoff Calculator</h2>
+                <p style="margin-top:0; margin-bottom:15px; font-size: 14px;">See how extra payments can shorten your loan term and save you money.</p>
+                <div class="split-group">
+                    <div class="form-group">
+                        <label for="extra-payment">Additional Payment</label>
+                        <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="extra-payment" value="0" min="0"></div>
                     </div>
-                    <div id="payoff-output" class="payoff-result"></div>
+                    <div class="form-group">
+                        <label for="payment-frequency">Frequency</label>
+                        <select id="payment-frequency">
+                            <option value="monthly">Monthly</option>
+                            <option value="bi-weekly">Bi-Weekly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="payoff-output" class="payoff-result"></div>
                     <p class="disclaimer">
                         The savings shown are an estimate. Actual savings may vary based on loan servicing and application of extra payments.
                     </p>
                 </div>
+            </form>
+        </div>
 
-                <div>
-                    <h2>Loan Summary</h2>
-                    <div class="summary-list">
-                        <div class="summary-item"><p>Down Payment:</p><h3 id="summary-down-payment">$0</h3></div>
-                        <div class="summary-item"><p>Loan Amount:</p><h3 id="summary-loan-amount">$675,000</h3></div>
-                        <div class="summary-item"><p>Total Interest Paid:</p><h3 id="summary-total-interest">$982,688</h3></div>
-                    </div>
-                     </div>
+        <div class="right-column">
+            <div class="section-card">
+                 <h2>Monthly Payment Breakdown</h2>
+                <div class="total-payment">
+                    <p>Total Monthly Payment</p>
+                    <h3 id="total-monthly-payment">$5,380</h3>
+                </div>
+                <div class="breakdown-grid">
+                    <div class="breakdown-item"><p>Principal & Interest</p><h3 id="p-and-i">$4,605</h3></div>
+                    <div class="breakdown-item"><p>Property Tax</p><h3 id="monthly-tax">$675</h3></div>
+                    <div class="breakdown-item"><p>Insurance</p><h3 id="monthly-insurance">$100</h3></div>
+                    <div class="breakdown-item"><p>HOA</p><h3 id="monthly-hoa">$0</h3></div>
+                </div>
+                <p class="disclaimer">
+                    This is an estimate for informational purposes only. Final payment may vary based on your final loan terms and other factors.
+                </p>
             </div>
+            
+            <div>
+                <h2>Loan Summary</h2>
+                <div class="summary-list">
+                    <div class="summary-item"><p>Down Payment:</p><h3 id="summary-down-payment">$0</h3></div>
+                    <div class="summary-item"><p>Loan Amount:</p><h3 id="summary-loan-amount">$675,000</h3></div>
+                    <div class="summary-item"><p>Total Interest Paid (Original):</p><h3 id="summary-total-interest">$982,688</h3></div>
+                    <div class="summary-item" id="summary-item-total-interest-with-extra" style="display:none;">
+                        <p>Total Interest Paid (with Extra Payments):</p>
+                        <h3 id="summary-total-interest-with-extra"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
 
     </section>

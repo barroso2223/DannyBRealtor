@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Mortgage Calculator</title>
+    <style>
+        /* --- Global Styles & Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #0d203c;
+            --secondary-color: #f76c6c;
+            --background-color: #f4f7fa;
+            --card-background: #ffffff;
+            --border-color: #e0e6f1;
+            --text-color: #5a677d;
+            --heading-color: #0d203c;
+            --input-bg: #ffffff;
+            --total-bg: #fff0f0;
+            --total-text: #e55c5c;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+            min-height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* --- Main Container (Desktop) --- */
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            width: 100%;
+            background-color: var(--card-background);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- General Element Styling --- */
+        h2 { font-size: 20px; color: var(--heading-color); margin-top: 0; margin-bottom: 20px; font-weight: 600; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+        .input-wrapper { position: relative; }
+        .input-wrapper .symbol { position: absolute; top: 50%; transform: translateY(-50%); left: 15px; color: var(--text-color); font-weight: 500; }
+        input[type="number"], select { width: 100%; padding: 12px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 16px; font-family: 'Inter', sans-serif; box-sizing: border-box; transition: border-color 0.2s, box-shadow 0.2s; }
+        input[type="number"] { padding-left: 30px; }
+        input[type="number"]:focus, select:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(13, 32, 60, 0.1); }
+        .split-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .left-column, .right-column { display: flex; flex-direction: column; gap: 30px; }
+        .section-card { padding: 25px; background-color: #fff; border: 1px solid var(--border-color); border-radius: 12px; }
+        .breakdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .breakdown-item, .summary-item { padding: 15px; background-color: var(--background-color); border-radius: 10px; }
+        .breakdown-item p, .summary-item p { margin: 0; font-size: 14px; color: var(--text-color); }
+        .breakdown-item h3, .summary-item h3 { margin: 5px 0 0 0; font-size: 22px; color: var(--heading-color); font-weight: 600; }
+        .total-payment { padding: 20px; text-align: center; background-color: var(--total-bg); border-radius: 12px; margin-bottom: 20px; }
+        .total-payment p { margin: 0; font-size: 14px; color: var(--total-text); font-weight: 500; }
+        .total-payment h3 { margin: 5px 0 0 0; font-size: 36px; color: var(--total-text); font-weight: 700; }
+        .summary-list { display: flex; flex-direction: column; gap: 10px; }
+        
+        /* --- Early Payoff Section --- */
+        .payoff-result {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary-color);
+            min-height: 48px;
+        }
+        .payoff-result p { margin: 5px 0; }
+        .payoff-result span { font-weight: 700; color: var(--secondary-color); }
+        
+        /* --- Disclaimer Styling --- */
+        .disclaimer {
+            font-size: 12px;
+            color: var(--text-color);
+            font-style: italic;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 1100px) {
+            body { padding: 20px 10px; }
+            .calculator-container { grid-template-columns: 1fr; padding: 25px; gap: 30px; }
+            .total-payment h3 { font-size: 32px; }
+            .breakdown-item h3, .summary-item h3 { font-size: 20px; }
+        }
+        
+        @media (max-width: 700px) {
+            .split-group { grid-template-columns: 1fr; gap: 20px; }
+            .split-group .form-group { margin-bottom: 0; }
+            .breakdown-grid { grid-template-columns: 1fr; }
+            .calculator-container { padding: 20px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <main class="calculator-container">
+        <div class="left-column">
+            <form id="mortgage-form">
+                <h2>Loan Details</h2>
+                <div class="form-group">
+                    <label for="home-price">Home Price</label>
+                    <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="home-price" value="675000"></div>
+                </div>
+                <div class="split-group">
+                    <div class="form-group">
+                        <label for="down-payment">Down Payment (%)</label>
+                        <div class="input-wrapper"><span class="symbol">%</span><input type="number" id="down-payment" value="5" style="padding-left: 30px;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest-rate">Interest Rate (%)</label>
+                         <div class="input-wrapper"><span class="symbol">%</span><input type="number" id="interest-rate" value="7.25" step="0.01" style="padding-left: 30px;"></div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="loan-term">Loan Term (years)</label>
+                    <select id="loan-term">
+                        <option value="30">30 years</option>
+                        <option value="20">20 years</option>
+                        <option value="15">15 years</option>
+                        <option value="10">10 years</option>
+                    </select>
+                </div>
+
+                <h2>Additional Costs</h2>
+                <div class="split-group">
+                    <div class="form-group">
+                        <label for="property-tax">Property Tax (yearly)</label> <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="property-tax" value="8100"></div> </div>
+                    <div class="form-group">
+                        <label for="home-insurance">Home Insurance (yearly)</label>
+                        <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="home-insurance" value="1200"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hoa-fee">HOA Fee (monthly)</label>
+                    <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="hoa-fee" value="0"></div>
+                </div>
+            </form>
+        </div>
+
+        <div class="right-column">
+            <div class="section-card">
+                 <h2>Monthly Payment Breakdown</h2>
+                <div class="total-payment">
+                    <p>Total Monthly Payment</p>
+                    <h3 id="total-monthly-payment">$5,380</h3>
+                </div>
+                <div class="breakdown-grid">
+                    <div class="breakdown-item"><p>Principal & Interest</p><h3 id="p-and-i">$4,605</h3></div>
+                    <div class="breakdown-item"><p>Property Tax</p><h3 id="monthly-tax">$675</h3></div>
+                    <div class="breakdown-item"><p>Insurance</p><h3 id="monthly-insurance">$100</h3></div>
+                    <div class="breakdown-item"><p>HOA</p><h3 id="monthly-hoa">$0</h3></div>
+                </div>
+                <p class="disclaimer">
+                    This is an estimate for informational purposes only. Final payment may vary based on your final loan terms and other factors.
+                </p>
+            </div>
+
+            <div class="section-card">
+                <h2>Early Payoff Calculator</h2>
+                <p style="margin-top:0; margin-bottom:15px; font-size: 14px;">See how extra payments can shorten your loan term and save you money.</p>
+                <div class="split-group">
+                     <div class="form-group">
+                        <label for="extra-payment">Additional Payment</label>
+                        <div class="input-wrapper"><span class="symbol">$</span><input type="number" id="extra-payment" value="0" min="0"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-frequency">Frequency</label>
+                        <select id="payment-frequency">
+                            <option value="monthly">Monthly</option>
+                            <option value="bi-weekly">Bi-Weekly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="payoff-output" class="payoff-result"></div>
+                <p class="disclaimer">
+                    The savings shown are an estimate. Actual savings may vary based on loan servicing and application of extra payments.
+                </p>
+            </div>
+            
+            <div>
+                <h2>Loan Summary</h2>
+                <div class="summary-list">
+                    <div class="summary-item"><p>Down Payment:</p><h3 id="summary-down-payment">$0</h3></div>
+                    <div class="summary-item"><p>Loan Amount:</p><h3 id="summary-loan-amount">$675,000</h3></div>
+                    <div class="summary-item"><p>Total Interest Paid (Original):</p><h3 id="summary-total-interest">$982,688</h3></div>
+                    <div class="summary-item" id="summary-item-total-interest-with-extra" style="display:none;">
+                        <p>Total Interest Paid (with Extra Payments):</p>
+                        <h3 id="summary-total-interest-with-extra"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Element Selection ---
+    const inputs = document.querySelectorAll('input, select');
+    const totalMonthlyPaymentEl = document.getElementById('total-monthly-payment');
+    const pAndIEl = document.getElementById('p-and-i');
+    const monthlyTaxEl = document.getElementById('monthly-tax');
+    const monthlyInsuranceEl = document.getElementById('monthly-insurance');
+    const monthlyHoaEl = document.getElementById('monthly-hoa');
+    const summaryDownPaymentEl = document.getElementById('summary-down-payment');
+    const summaryLoanAmountEl = document.getElementById('summary-loan-amount');
+    const summaryTotalInterestEl = document.getElementById('summary-total-interest');
+    const payoffOutputEl = document.getElementById('payoff-output');
+    // NEW ELEMENTS FOR EXTRA PAYMENT INTEREST SUMMARY
+    const summaryTotalInterestWithExtraEl = document.getElementById('summary-total-interest-with-extra');
+    const summaryItemTotalInterestWithExtraEl = document.getElementById('summary-item-total-interest-with-extra');
+
+    // --- Helper Function ---
+    const formatCurrency = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+
+    // --- Main Calculation ---
+    function calculateMortgage() {
+        // Get input values
+        const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
+        const downPaymentPercent = parseFloat(document.getElementById('down-payment').value) || 0;
+        const interestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
+        const loanTermYears = parseInt(document.getElementById('loan-term').value) || 0;
+        
+        const propertyTaxAnnual = parseFloat(document.getElementById('property-tax').value) || 0;
+        const homeInsuranceAnnual = parseFloat(document.getElementById('home-insurance').value) || 0;
+        const hoaFeeMonthly = parseFloat(document.getElementById('hoa-fee').value) || 0;
+        
+        // Core mortgage calculations
+        const downPaymentAmount = homePrice * (downPaymentPercent / 100);
+        const loanAmount = homePrice - downPaymentAmount;
+        const monthlyInterestRate = (interestRate / 100) / 12;
+        const numberOfPayments = loanTermYears * 12;
+        
+        let monthlyPAndI = 0;
+        if (loanAmount > 0 && monthlyInterestRate > 0) {
+            monthlyPAndI = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+        } else if (loanAmount > 0) {
+            monthlyPAndI = loanAmount / numberOfPayments;
+        }
+
+        const originalTotalInterest = (monthlyPAndI * numberOfPayments) - loanAmount;
+        
+        const monthlyPropertyTax = propertyTaxAnnual / 12;
+        const monthlyInsurance = homeInsuranceAnnual / 12;
+        const totalMonthlyPayment = monthlyPAndI + monthlyPropertyTax + monthlyInsurance + hoaFeeMonthly;
+
+        // Update UI
+        totalMonthlyPaymentEl.textContent = formatCurrency(totalMonthlyPayment);
+        pAndIEl.textContent = formatCurrency(monthlyPAndI);
+        monthlyTaxEl.textContent = formatCurrency(monthlyPropertyTax);
+        monthlyInsuranceEl.textContent = formatCurrency(monthlyInsurance);
+        monthlyHoaEl.textContent = formatCurrency(hoaFeeMonthly);
+        summaryDownPaymentEl.textContent = formatCurrency(downPaymentAmount);
+        summaryLoanAmountEl.textContent = formatCurrency(loanAmount);
+        summaryTotalInterestEl.textContent = formatCurrency(originalTotalInterest > 0 ? originalTotalInterest : 0);
+
+        // Pass original total interest to payoff calculator
+        calculateEarlyPayoff(loanAmount, monthlyPAndI, monthlyInterestRate, numberOfPayments, originalTotalInterest);
+    }
+    
+    // --- Early Payoff Calculation ---
+    function calculateEarlyPayoff(loanAmount, monthlyPAndI, monthlyInterestRate, originalNumberOfPayments, originalTotalInterest) {
+        const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
+        const frequency = document.getElementById('payment-frequency').value;
+
+        // Reset the extra interest summary display if no extra payment
+        if (extraPayment <= 0 || loanAmount <= 0) {
+            payoffOutputEl.innerHTML = '';
+            summaryItemTotalInterestWithExtraEl.style.display = 'none'; // Hide the summary item
+            summaryTotalInterestWithExtraEl.textContent = ''; // Clear its content
+            return;
+        }
+
+        let equivalentMonthlyExtra = 0;
+        if (frequency === 'monthly') equivalentMonthlyExtra = extraPayment;
+        else if (frequency === 'bi-weekly') equivalentMonthlyExtra = extraPayment * 26 / 12;
+        else if (frequency === 'yearly') equivalentMonthlyExtra = extraPayment / 12;
+
+        let remainingBalance = loanAmount;
+        let months = 0;
+        let newTotalInterestPaid = 0;
+        const totalMonthlyPaymentWithExtra = monthlyPAndI + equivalentMonthlyExtra;
+        
+        while (remainingBalance > 0) {
+            const interestThisMonth = remainingBalance * monthlyInterestRate;
+            if (totalMonthlyPaymentWithExtra <= interestThisMonth) {
+                payoffOutputEl.innerHTML = `<p>Extra payment isn't enough to cover interest.</p>`;
+                summaryItemTotalInterestWithExtraEl.style.display = 'none'; // Hide if not enough payment
+                summaryTotalInterestWithExtraEl.textContent = '';
+                return;
+            }
+            newTotalInterestPaid += interestThisMonth;
+            remainingBalance -= (totalMonthlyPaymentWithExtra - interestThisMonth);
+            months++;
+            if (months > originalNumberOfPayments * 2) break; // Safety break
+        }
+
+        const yearsSaved = Math.floor((originalNumberOfPayments - months) / 12);
+        const monthsSaved = (originalNumberOfPayments - months) % 12;
+        const yearsPaid = Math.floor(months / 12);
+        const monthsPaid = months % 12;
+
+        const interestSaved = originalTotalInterest - newTotalInterestPaid;
+
+        payoffOutputEl.innerHTML = `
+            <p>Paid off in <strong>${yearsPaid} years, ${monthsPaid} months</strong> (saving ${yearsSaved} years, ${monthsSaved} months).</p>
+            <p>Total interest saved: <span>${formatCurrency(interestSaved > 0 ? interestSaved : 0)}</span></p>
+        `;
+
+        // NEW: Update the new summary item
+        summaryTotalInterestWithExtraEl.textContent = formatCurrency(newTotalInterestPaid > 0 ? newTotalInterestPaid : 0);
+        summaryItemTotalInterestWithExtraEl.style.display = 'block'; // Show the summary item
+    }
+
+    // --- Event Listeners ---
+    inputs.forEach(input => input.addEventListener('input', calculateMortgage));
+    
+    // Initial calculation on page load
+    calculateMortgage();
+});
+</script>
+
+</body>
+</html>

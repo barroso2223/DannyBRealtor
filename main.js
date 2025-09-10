@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     
-    const inputs = document.querySelectorAll('input, select');
+   const inputs = document.querySelectorAll('input, select');
     const totalMonthlyPaymentEl = document.getElementById('total-monthly-payment');
     const pAndIEl = document.getElementById('p-and-i');
     const monthlyTaxEl = document.getElementById('monthly-tax');
@@ -76,6 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const summaryLoanAmountEl = document.getElementById('summary-loan-amount');
     const summaryTotalInterestEl = document.getElementById('summary-total-interest');
     const payoffOutputEl = document.getElementById('payoff-output');
+    // NEW ELEMENTS FOR EXTRA PAYMENT INTEREST SUMMARY
+    const summaryTotalInterestWithExtraEl = document.getElementById('summary-total-interest-with-extra');
+    const summaryItemTotalInterestWithExtraEl = document.getElementById('summary-item-total-interest-with-extra');
 
     // --- Helper Function ---
     const formatCurrency = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
@@ -87,7 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const downPaymentPercent = parseFloat(document.getElementById('down-payment').value) || 0;
         const interestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
         const loanTermYears = parseInt(document.getElementById('loan-term').value) || 0;
-        const propertyTaxPercent = parseFloat(document.getElementById('property-tax').value) || 0;
+        
+        const propertyTaxAnnual = parseFloat(document.getElementById('property-tax').value) || 0;
         const homeInsuranceAnnual = parseFloat(document.getElementById('home-insurance').value) || 0;
         const hoaFeeMonthly = parseFloat(document.getElementById('hoa-fee').value) || 0;
         
@@ -105,7 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const originalTotalInterest = (monthlyPAndI * numberOfPayments) - loanAmount;
-        const monthlyPropertyTax = (homePrice * (propertyTaxPercent / 100)) / 12;
+        
+        const monthlyPropertyTax = propertyTaxAnnual / 12;
         const monthlyInsurance = homeInsuranceAnnual / 12;
         const totalMonthlyPayment = monthlyPAndI + monthlyPropertyTax + monthlyInsurance + hoaFeeMonthly;
 
@@ -128,8 +133,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
         const frequency = document.getElementById('payment-frequency').value;
 
+        // Reset the extra interest summary display if no extra payment
         if (extraPayment <= 0 || loanAmount <= 0) {
             payoffOutputEl.innerHTML = '';
+            summaryItemTotalInterestWithExtraEl.style.display = 'none'; // Hide the summary item
+            summaryTotalInterestWithExtraEl.textContent = ''; // Clear its content
             return;
         }
 
@@ -147,6 +155,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const interestThisMonth = remainingBalance * monthlyInterestRate;
             if (totalMonthlyPaymentWithExtra <= interestThisMonth) {
                 payoffOutputEl.innerHTML = `<p>Extra payment isn't enough to cover interest.</p>`;
+                summaryItemTotalInterestWithExtraEl.style.display = 'none'; // Hide if not enough payment
+                summaryTotalInterestWithExtraEl.textContent = '';
                 return;
             }
             newTotalInterestPaid += interestThisMonth;
@@ -155,20 +165,21 @@ document.addEventListener('DOMContentLoaded', function() {
             if (months > originalNumberOfPayments * 2) break; // Safety break
         }
 
-        // Time saved calculations
         const yearsSaved = Math.floor((originalNumberOfPayments - months) / 12);
         const monthsSaved = (originalNumberOfPayments - months) % 12;
         const yearsPaid = Math.floor(months / 12);
         const monthsPaid = months % 12;
 
-        // Money saved calculation
         const interestSaved = originalTotalInterest - newTotalInterestPaid;
 
-        // Update the UI with both time and money saved
         payoffOutputEl.innerHTML = `
             <p>Paid off in <strong>${yearsPaid} years, ${monthsPaid} months</strong> (saving ${yearsSaved} years, ${monthsSaved} months).</p>
             <p>Total interest saved: <span>${formatCurrency(interestSaved > 0 ? interestSaved : 0)}</span></p>
         `;
+
+        // NEW: Update the new summary item
+        summaryTotalInterestWithExtraEl.textContent = formatCurrency(newTotalInterestPaid > 0 ? newTotalInterestPaid : 0);
+        summaryItemTotalInterestWithExtraEl.style.display = 'block'; // Show the summary item
     }
 
     // --- Event Listeners ---

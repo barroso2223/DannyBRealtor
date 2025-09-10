@@ -340,24 +340,23 @@ video.bg-video {
   
   
   /* --- Main Container (Desktop) --- */
-    #calculator {
-        width: 100dvw;
-        background-color: var(--bgCustom);
-    }
+  
         .calculator-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            width: 1000px;
+            max-width: fit-content;
             width: 100%;
-            background-color: var(--bgCustom);
+            background-color: var(--card-background);
             padding: 40px;
+            border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         /* --- General Element Styling --- */
-        .form-group { margin-bottom: 20px; color: var(--text-color);}
-        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px;  color: var(--text-color);}
+        h2 { font-size: 20px; color: var(--heading-color); margin-top: 0; margin-bottom: 20px; font-weight: 600; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; }
         .input-wrapper { position: relative; }
         .input-wrapper .symbol { position: absolute; top: 50%; transform: translateY(-50%); left: 15px; color: var(--text-color); font-weight: 500; }
         input[type="number"], select { width: 100%; padding: 12px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 16px; font-family: 'Inter', sans-serif; box-sizing: border-box; transition: border-color 0.2s, box-shadow 0.2s; }
@@ -367,7 +366,7 @@ video.bg-video {
         .left-column, .right-column { display: flex; flex-direction: column; gap: 30px; }
         .section-card { padding: 25px; background-color: #fff; border: 1px solid var(--border-color); border-radius: 12px; }
         .breakdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .breakdown-item, .summary-item { padding: 15px; background-color: var(--background-color); border-radius: 10px; color: var(--text-color); }
+        .breakdown-item, .summary-item { padding: 15px; background-color: var(--background-color); border-radius: 10px; }
         .breakdown-item p, .summary-item p { margin: 0; font-size: 14px; color: var(--text-color); }
         .breakdown-item h3, .summary-item h3 { margin: 5px 0 0 0; font-size: 22px; color: var(--heading-color); font-weight: 600; }
         .total-payment { padding: 20px; text-align: center; background-color: var(--total-bg); border-radius: 12px; margin-bottom: 20px; }
