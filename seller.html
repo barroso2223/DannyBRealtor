@@ -19,11 +19,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bgcustom">
-    <section class="container vh-100 vw-100 bgcustom text-white d-flex flex-column justify-content-center m-auto">
+    <section class="container vh-auto vw-100 bgcustom text-white d-flex flex-column justify-content-center m-auto text-center ,y-5">
         <h2 class="d-flex justify-content-center text-center pt-5">Tell us about your property – let’s get it sold!</h2>
         <p>Fill out the form below with details about your home. Once submitted, we’ll get in touch to provide a personalized strategy and help you take the next step toward a successful sale.</p>
         <hr>
-        <iframe class="airtable-embed" src="https://airtable.com/embed/appGBqyqnuUAP9mQg/pagMmic4nq7eRebdq/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+            
+                <div class="ratio" style="--bs-aspect-ratio: 150%;">
+                  <iframe 
+                    class="airtable-embed ratio-item vh-100" 
+                    src="https://airtable.com/embed/appGBqyqnuUAP9mQg/pagMmic4nq7eRebdq/form" 
+                    frameborder="0" 
+                    style="background: transparent; border: 1px solid #ccc;">
+                  </iframe>
+                </div>
+            
+            </div>
+        </div>
     </section>
 </body>
 </html>
